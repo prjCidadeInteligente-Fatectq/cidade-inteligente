@@ -1,0 +1,25 @@
+<ul class="counters">
+    @for (item of chartItems; track item.label) {
+       <li class="counter">
+        <span>{{ item.label }}:</span>
+        <span>{{ item.value }}</span>
+        </li> 
+    }
+    
+    <li class="counter">
+        <span>Total geral:</span>
+        <span>{{ totalComplaints }}</span>
+    </li>
+
+    <li class="chart-wrapper">
+      <canvas #pizzaChart></canvas>
+      <div class="legend" role="list" aria-label="Legenda do gráfico de reclamações">
+        @for (item of chartItems; track item.label) {
+          <div class="legend-item" role="listitem">
+            <span class="legend-color" [style.background-color]="item.color"></span>
+            <span class="legend-label">{{ item.label }}: {{ item.value }} ({{ (item.value / totalComplaints * 100) | number:'1.0-0' }}%)</span>
+          </div>
+        }
+      </div>
+    </li>
+</ul>
