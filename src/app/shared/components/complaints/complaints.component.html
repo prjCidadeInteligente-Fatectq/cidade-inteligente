@@ -32,3 +32,38 @@
             </div>
         }
 </article>
+
+<article class="card">
+    <button (click)="toggleExpand()" class="complaint">
+        <header class="header">
+            <div class="info">
+                <span class="desc">Buraco na rua</span>
+                <small class="small">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Rua Principal, 123
+                </small>
+                <small class="small">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    26/03/26
+                </small>
+            </div>
+    
+            <div class="additional-info">
+                <span class="status">Pendente</span>
+    
+                @if (!isExpanded) {
+                    <i class="fa-solid fa-chevron-down" style="color: #181818;"></i>
+                } @else {
+                    <i class="fa-solid fa-chevron-up" style="color: #181818;"></i>
+                }
+            </div>
+        </header>
+    </button>
+    
+        @if (isExpanded) {
+            <div class="body">
+                <img src="/buraco.jpg" alt="imagem de buraco">
+                <p>Descrição do problema: Buraco na rua principal.</p>
+            </div>
+        }
+</article>
