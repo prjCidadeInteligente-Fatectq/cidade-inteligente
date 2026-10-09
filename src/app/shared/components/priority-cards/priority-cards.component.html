@@ -1,5 +1,14 @@
-<section>
-    <span>Prioridade alta</span>
-
-    
+<section class="cards">
+    @for (priority of priorities; track priority.name) {
+        <article class="card">
+            <header class="header" [style.background-color]="priority.color">
+                <span>Prioridade {{ priority.name }}</span>
+                <button>Ordenar <i class="fa-solid fa-chevron-down" style="color: #181818;"></i></button>
+            </header>
+        
+            <div class="complaints">
+                <app-complaints></app-complaints>
+            </div>
+        </article>
+    }
 </section>

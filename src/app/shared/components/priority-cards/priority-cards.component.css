@@ -1,0 +1,44 @@
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.card {
+    border-radius: 10px;
+    width: fit-content;
+    background-color: #f5f5f5;
+    border: 1px solid #bbbbbb;
+    min-height: 300px;
+    width: 30%;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: 1px solid #bbbbbb;
+    color: #181818;
+}
+
+.header button {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.header button i {
+    font-size: 11px;
+}
+
+.complaints {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
