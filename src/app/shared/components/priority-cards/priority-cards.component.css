@@ -21,7 +21,7 @@
     justify-content: space-between;
     padding: 10px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     border-bottom: 1px solid #bbbbbb;
     color: #181818;
 }
@@ -29,12 +29,12 @@
 .header button {
     background-color: transparent;
     border: none;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
 }
 
 .header button i {
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .complaints {
