@@ -1,7 +1,7 @@
 <header class="header">
     <h1>Visão geral:</h1>
-    <app-complaint-counter></app-complaint-counter>
-    <app-priority-cards></app-priority-cards>
+    <app-complaint-counter [complaints]="complaintsList"></app-complaint-counter>
+    <app-priority-cards [complaints]="complaintsList"></app-priority-cards>
 </header>
 
 <main>

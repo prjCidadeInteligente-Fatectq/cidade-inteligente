@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js/auto';
+import { Complaint } from '@core/models';
 
 interface ChartItem {
   label: string;
@@ -13,19 +14,27 @@ interface ChartItem {
   styleUrl: './complaint-counter.component.css',
   templateUrl: './complaint-counter.component.html',
 })
-export class ComplaintCounterComponent implements AfterViewInit, OnDestroy {
+export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestroy {
+  @Input() complaints: Complaint[] = [];
+
   @ViewChild('pizzaChart')
   pizzaChart!: ElementRef<HTMLCanvasElement>;
 
   chart?: Chart;
 
-  chartItems: ChartItem[] = [
-    { label: 'Pendentes', value: 12, color: '#F59E0B' },
-    { label: 'Obras em andamento', value: 8, color: '#2d8fd1' },
-    { label: 'Obras concluídas', value: 10, color: '#22C55E' }
-  ];
+  chartItems: ChartItem[] = [];
 
-  totalComplaints: number = this.chartItems.reduce((sum, item) => sum + item.value, 0);
+  totalComplaints: number = 0;
+  
+  ngOnInit(): void {
+    this.totalComplaints = this.complaints.length;
+
+    this.chartItems = [
+      { label: 'Pendentes', value: this.complaints.filter(c => c.complaintStatus === 'PENDENTE').length, color: '#F59E0B' },
+      { label: 'Obras em andamento', value: this.complaints.filter(c => c.complaintStatus === 'EM_ANDAMENTO').length, color: '#2d8fd1' },
+      { label: 'Obras concluídas', value: this.complaints.filter(c => c.complaintStatus === 'CONCLUIDA').length, color: '#22C55E' }
+    ]
+  }
 
   ngAfterViewInit(): void {
     this.chart = new Chart(this.pizzaChart.nativeElement, {
