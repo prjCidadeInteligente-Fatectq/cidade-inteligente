@@ -10,4 +10,5 @@ export interface User {
     createdAt: string;
     lastLoginAt: string;
     isActive: boolean;
+    role: Role;
 }
