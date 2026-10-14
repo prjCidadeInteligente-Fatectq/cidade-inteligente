@@ -3,6 +3,7 @@ import { Complaint } from '@core/models';
 export const complaints: Complaint[] = [
   {
     id: 1,
+    problem: 'Buraco grande',
     date: '2026-01-15T08:30:00Z',
     latitude: -23.5505,
     longitude: -46.6333,
@@ -21,15 +22,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 2,
+    problem: 'Lâmpada queimada',
     date: '2026-01-16T14:22:00Z',
     latitude: -23.5618,
     longitude: -46.6567,
     description: 'Lâmpada queimada na Rua Augusta, trecho entre Alameda Santos e Haddock Lobo',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Cerqueira César',
     user: {
       id: 102,
@@ -43,10 +46,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 3,
+    problem: 'Vazamento de água',
     date: '2026-01-17T09:45:00Z',
     latitude: -23.5489,
     longitude: -46.6388,
@@ -65,15 +70,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 4,
+    problem: 'Acúmulode lixo',
     date: '2026-01-18T16:10:00Z',
     latitude: -23.5558,
     longitude: -46.6698,
     description: 'Acúmulo de lixo na Praça Roosevelt, atraindo animais e insetos',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'República',
     user: {
       id: 104,
@@ -87,10 +94,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 5,
+    problem: 'Semáforo defeituoso',
     date: '2026-01-19T11:55:00Z',
     latitude: -23.5671,
     longitude: -46.6489,
@@ -109,15 +118,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 6,
+    problem: 'Calçada quebrada',
     date: '2026-01-20T07:30:00Z',
     latitude: -23.5392,
     longitude: -46.6563,
     description: 'Calçada quebrada na Rua Vergueiro, próximo ao Metrô Paraíso, risco de queda',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Paraíso',
     user: {
       id: 106,
@@ -131,10 +142,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 7,
+    problem: 'Falta de sinalização',
     date: '2026-01-21T13:40:00Z',
     latitude: -23.5587,
     longitude: -46.6312,
@@ -153,10 +166,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 8,
+    problem: 'Esgoto a céu aberto',
     date: '2026-01-22T10:15:00Z',
     latitude: -23.5733,
     longitude: -46.6417,
@@ -175,10 +190,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 9,
+    problem: 'Árvore caída',
     date: '2026-01-23T15:20:00Z',
     latitude: -23.5445,
     longitude: -46.6642,
@@ -197,15 +214,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 10,
+    problem: 'Buraco na ciclovia',
     date: '2026-01-24T08:00:00Z',
     latitude: -23.5629,
     longitude: -46.6544,
     description: 'Buraco na ciclofaixa da Avenida Faria Lima, próximo ao Shopping Iguatemi',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Itaim Bibi',
     user: {
       id: 110,
@@ -219,10 +238,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 11,
+    problem: 'Pichação no muro',
     date: '2026-01-25T12:30:00Z',
     latitude: -23.5512,
     longitude: -46.6289,
@@ -241,15 +262,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 12,
+    problem: 'Falta de iluminação',
     date: '2026-01-26T17:45:00Z',
     latitude: -23.5684,
     longitude: -46.6872,
     description: 'Falta de iluminação na Praça do Pôr do Sol, insegurança noturna',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Pinheiros',
     user: {
       id: 112,
@@ -263,10 +286,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 13,
+    problem: 'Vazamento de gás',
     date: '2026-01-27T09:10:00Z',
     latitude: -23.5421,
     longitude: -46.6378,
@@ -285,10 +310,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 14,
+    problem: 'Lixeira transbordando',
     date: '2026-01-28T14:00:00Z',
     latitude: -23.5789,
     longitude: -46.6621,
@@ -307,15 +334,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 15,
+    problem: 'Faixa  de pedestres apagada',
     date: '2026-01-29T11:25:00Z',
     latitude: -23.5567,
     longitude: -46.6498,
     description: 'Faixa de pedestres apagada na Avenida Rebouças, esquina com Rua Teodoro Sampaio',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Pinheiros',
     user: {
       id: 115,
@@ -329,15 +358,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 16,
+    problem: 'Ponto de ônibus destruído',
     date: '2026-01-30T16:50:00Z',
     latitude: -23.5345,
     longitude: -46.6421,
     description: 'Ponto de ônibus destruído na Avenida Brigadeiro Luís Antônio, sem cobertura',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Bela Vista',
     user: {
       id: 116,
@@ -351,10 +382,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 17,
+    problem: 'Infiltração no teto da estação',
     date: '2026-01-31T08:40:00Z',
     latitude: -23.5812,
     longitude: -46.6754,
@@ -373,10 +406,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 18,
+    problem: 'Rachadura no asfalto',
     date: '2026-02-01T10:30:00Z',
     latitude: -23.5487,
     longitude: -46.6356,
@@ -395,15 +430,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 19,
+    problem: 'Fiação exposta',
     date: '2026-02-02T13:15:00Z',
     latitude: -23.5698,
     longitude: -46.6598,
     description: 'Fiação exposta na Rua Oscar Freire, perigo para pedestres e ciclistas',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Jardins',
     user: {
       id: 119,
@@ -417,10 +454,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 20,
+    problem: 'Bueiro aberto',
     date: '2026-02-03T09:00:00Z',
     latitude: -23.5534,
     longitude: -46.6401,
@@ -439,10 +478,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 21,
+    problem: 'Rachadura no asfalto',
     date: '2026-02-04T14:20:00Z',
     latitude: -23.5505,
     longitude: -46.6333,
@@ -461,10 +502,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 22,
+    problem: 'Lâmpada queimada',
     date: '2026-02-05T09:15:00Z',
     latitude: -23.5618,
     longitude: -46.6567,
@@ -483,10 +526,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 23,
+    problem: 'Vazamento de água',
     date: '2026-02-06T11:30:00Z',
     latitude: -23.5489,
     longitude: -46.6388,
@@ -505,15 +550,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 24,
+    problem: 'Lixo acumulado',
     date: '2026-02-07T16:45:00Z',
     latitude: -23.5558,
     longitude: -46.6698,
     description: 'Lixo acumulado na Praça Roosevelt volta a aparecer após coleta',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'República',
     user: {
       id: 104,
@@ -527,15 +574,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 25,
+    problem: 'Semáforo com problema',
     date: '2026-02-08T08:00:00Z',
     latitude: -23.5671,
     longitude: -46.6489,
     description: 'Semáforo da Oscar Freire com Haddock Lobo piscando em amarelo',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Jardins',
     user: {
       id: 105,
@@ -549,10 +598,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 26,
+    problem: 'Esgoto transbordado',
     date: '2026-02-09T13:25:00Z',
     latitude: -23.5733,
     longitude: -46.6417,
@@ -571,10 +622,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 27,
+    problem: 'Iluminação insuficiente em praça',
     date: '2026-02-10T10:10:00Z',
     latitude: -23.5684,
     longitude: -46.6872,
@@ -593,15 +646,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 28,
+    problem: 'Faixa de pedestres desgastada',
     date: '2026-02-11T15:00:00Z',
     latitude: -23.5567,
     longitude: -46.6498,
     description: 'Faixa de pedestres da Rebouças desgastada, mal visível à noite',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Pinheiros',
     user: {
       id: 115,
@@ -615,15 +670,17 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'CONCLUÍDA',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 29,
+    problem: 'Ponto de ônibus vandalizado',
     date: '2026-02-12T07:55:00Z',
     latitude: -23.5345,
     longitude: -46.6421,
     description: 'Ponto de ônibus da Luís Antônio vandalizado novamente',
-    priority: 'MEDIA',
+    priority: 'MÉDIA',
     neighborhood: 'Bela Vista',
     user: {
       id: 116,
@@ -637,10 +694,12 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'EM ANDAMENTO',
+    imagePath: '/buraco.jpg'
   },
   {
     id: 30,
+    problem: 'Bueiro com barulho estranho',
     date: '2026-02-13T12:40:00Z',
     latitude: -23.5534,
     longitude: -46.6401,
@@ -659,6 +718,7 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'PENDENTE',
+    imagePath: '/buraco.jpg'
   }
 ];
