@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Complaint } from "@core/models";
 
 @Component({
     selector: 'app-complaints',
@@ -7,9 +8,15 @@ import { Component } from "@angular/core";
     templateUrl: './complaints.component.html',
 })
 export class ComplaintsComponent {
-    isExpanded: boolean = false;
+    @Input() complaints: Complaint[] = [];
 
-    toggleExpand() {
-        this.isExpanded = !this.isExpanded;
+    expandedCardId: number | null = null;
+
+    toggleExpand(id: number) {
+        if (this.expandedCardId === id) {
+            this.expandedCardId = null;
+        } else {
+            this.expandedCardId = id;
+        }
     }
 }
