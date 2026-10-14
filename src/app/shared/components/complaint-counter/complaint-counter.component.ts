@@ -31,8 +31,8 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
 
     this.chartItems = [
       { label: 'Pendentes', value: this.complaints.filter(c => c.complaintStatus === 'PENDENTE').length, color: '#F59E0B' },
-      { label: 'Obras em andamento', value: this.complaints.filter(c => c.complaintStatus === 'EM_ANDAMENTO').length, color: '#2d8fd1' },
-      { label: 'Obras concluídas', value: this.complaints.filter(c => c.complaintStatus === 'CONCLUIDA').length, color: '#22C55E' }
+      { label: 'Obras em andamento', value: this.complaints.filter(c => c.complaintStatus === 'EM ANDAMENTO').length, color: '#2d8fd1' },
+      { label: 'Obras concluídas', value: this.complaints.filter(c => c.complaintStatus === 'CONCLUÍDA').length, color: '#22C55E' }
     ]
   }
 
