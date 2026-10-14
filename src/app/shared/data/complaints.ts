@@ -1,4 +1,4 @@
-import { User, Complaint, StatusHistory } from '@core/models';
+import { Complaint } from '@core/models';
 
 export const complaints: Complaint[] = [
   {
@@ -18,7 +18,8 @@ export const complaints: Complaint[] = [
       password: 'senha123',
       createdAt: '2025-06-10T10:00:00Z',
       lastLoginAt: '2026-01-14T15:30:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -39,7 +40,8 @@ export const complaints: Complaint[] = [
       password: 'senha456',
       createdAt: '2025-07-22T09:15:00Z',
       lastLoginAt: '2026-01-16T10:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -60,7 +62,8 @@ export const complaints: Complaint[] = [
       password: 'senha789',
       createdAt: '2025-08-05T14:20:00Z',
       lastLoginAt: '2026-01-17T08:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -81,7 +84,8 @@ export const complaints: Complaint[] = [
       password: 'senha321',
       createdAt: '2025-09-12T11:30:00Z',
       lastLoginAt: '2026-01-18T12:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'CONCLUIDA'
   },
@@ -102,7 +106,8 @@ export const complaints: Complaint[] = [
       password: 'senha654',
       createdAt: '2025-10-03T16:45:00Z',
       lastLoginAt: '2026-01-19T10:30:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -123,7 +128,8 @@ export const complaints: Complaint[] = [
       password: 'senha987',
       createdAt: '2025-11-18T08:00:00Z',
       lastLoginAt: '2026-01-20T06:45:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -144,7 +150,8 @@ export const complaints: Complaint[] = [
       password: 'senha147',
       createdAt: '2025-12-01T12:00:00Z',
       lastLoginAt: '2026-01-21T11:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'CONCLUIDA'
   },
@@ -165,7 +172,8 @@ export const complaints: Complaint[] = [
       password: 'senha258',
       createdAt: '2026-01-05T09:30:00Z',
       lastLoginAt: '2026-01-22T08:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -186,7 +194,8 @@ export const complaints: Complaint[] = [
       password: 'senha369',
       createdAt: '2026-01-10T14:00:00Z',
       lastLoginAt: '2026-01-23T13:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'CONCLUIDA'
   },
@@ -207,7 +216,8 @@ export const complaints: Complaint[] = [
       password: 'senha741',
       createdAt: '2026-01-12T10:00:00Z',
       lastLoginAt: '2026-01-24T07:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -228,7 +238,8 @@ export const complaints: Complaint[] = [
       password: 'senha852',
       createdAt: '2025-05-20T15:00:00Z',
       lastLoginAt: '2026-01-25T10:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'CONCLUIDA'
   },
@@ -249,7 +260,8 @@ export const complaints: Complaint[] = [
       password: 'senha963',
       createdAt: '2025-04-15T11:30:00Z',
       lastLoginAt: '2026-01-26T16:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -270,7 +282,8 @@ export const complaints: Complaint[] = [
       password: 'senha159',
       createdAt: '2025-03-28T13:00:00Z',
       lastLoginAt: '2026-01-27T08:30:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -291,7 +304,8 @@ export const complaints: Complaint[] = [
       password: 'senha753',
       createdAt: '2025-02-10T10:00:00Z',
       lastLoginAt: '2026-01-28T12:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'CONCLUIDA'
   },
@@ -312,7 +326,8 @@ export const complaints: Complaint[] = [
       password: 'senha951',
       createdAt: '2025-01-25T09:00:00Z',
       lastLoginAt: '2026-01-29T10:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -333,7 +348,8 @@ export const complaints: Complaint[] = [
       password: 'senha357',
       createdAt: '2024-12-20T14:00:00Z',
       lastLoginAt: '2026-01-30T15:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -354,7 +370,8 @@ export const complaints: Complaint[] = [
       password: 'senha486',
       createdAt: '2024-11-15T16:00:00Z',
       lastLoginAt: '2026-01-31T07:30:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -375,7 +392,8 @@ export const complaints: Complaint[] = [
       password: 'senha264',
       createdAt: '2024-10-08T12:00:00Z',
       lastLoginAt: '2026-02-01T09:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'PENDENTE'
   },
@@ -396,7 +414,8 @@ export const complaints: Complaint[] = [
       password: 'senha135',
       createdAt: '2024-09-30T11:00:00Z',
       lastLoginAt: '2026-02-02T12:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'CONCLUIDA'
   },
@@ -417,7 +436,8 @@ export const complaints: Complaint[] = [
       password: 'senha864',
       createdAt: '2024-08-22T10:00:00Z',
       lastLoginAt: '2026-02-03T08:00:00Z',
-      isActive: true
+      isActive: true,
+      role: 'CIDADAO'
     },
     complaintStatus: 'EM_ANDAMENTO'
   },
@@ -426,7 +446,7 @@ export const complaints: Complaint[] = [
     date: '2026-02-04T14:20:00Z',
     latitude: -23.5505,
     longitude: -46.6333,
-    description: 'Novo buraco na Avenida Paulista, sentido Paraíso, próximo à estação Trianon-MASP',
+    description: 'Nova rachadura no asfalto da Avenida Paulista, sentido Paraíso',
     priority: 'ALTA',
     neighborhood: 'Bela Vista',
     user: {
@@ -437,7 +457,7 @@ export const complaints: Complaint[] = [
       cpf: '123.456.789-00',
       password: 'senha123',
       createdAt: '2025-06-10T10:00:00Z',
-      lastLoginAt: '2026-02-04T13:00:00Z',
+      lastLoginAt: '2026-02-04T12:00:00Z',
       isActive: true,
       role: 'CIDADAO'
     },
@@ -445,11 +465,11 @@ export const complaints: Complaint[] = [
   },
   {
     id: 22,
-    date: '2026-02-05T09:30:00Z',
+    date: '2026-02-05T09:15:00Z',
     latitude: -23.5618,
     longitude: -46.6567,
-    description: 'Outra lâmpada queimada na Rua Augusta, agora no cruzamento com a Alameda Jaú',
-    priority: 'MEDIA',
+    description: 'Mais uma lâmpada queimada na Rua Augusta, agora próximo à Alameda Jaú',
+    priority: 'BAIXA',
     neighborhood: 'Cerqueira César',
     user: {
       id: 102,
@@ -463,14 +483,14 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'CONCLUIDA'
   },
   {
     id: 23,
-    date: '2026-02-06T11:00:00Z',
+    date: '2026-02-06T11:30:00Z',
     latitude: -23.5489,
     longitude: -46.6388,
-    description: 'Vazamento de água na Rua da Consolação, agora na altura do número 1500',
+    description: 'Vazamento de água na Rua da Consolação aumentou, alagando calçada',
     priority: 'ALTA',
     neighborhood: 'Consolação',
     user: {
@@ -485,15 +505,59 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'EM_ANDAMENTO'
   },
   {
     id: 24,
     date: '2026-02-07T16:45:00Z',
+    latitude: -23.5558,
+    longitude: -46.6698,
+    description: 'Lixo acumulado na Praça Roosevelt volta a aparecer após coleta',
+    priority: 'MEDIA',
+    neighborhood: 'República',
+    user: {
+      id: 104,
+      name: 'Ana',
+      lastName: 'Costa',
+      email: 'ana.costa@email.com',
+      cpf: '456.789.012-33',
+      password: 'senha321',
+      createdAt: '2025-09-12T11:30:00Z',
+      lastLoginAt: '2026-02-07T15:00:00Z',
+      isActive: true,
+      role: 'CIDADAO'
+    },
+    complaintStatus: 'PENDENTE'
+  },
+  {
+    id: 25,
+    date: '2026-02-08T08:00:00Z',
+    latitude: -23.5671,
+    longitude: -46.6489,
+    description: 'Semáforo da Oscar Freire com Haddock Lobo piscando em amarelo',
+    priority: 'MEDIA',
+    neighborhood: 'Jardins',
+    user: {
+      id: 105,
+      name: 'Carlos',
+      lastName: 'Ferreira',
+      email: 'carlos.ferreira@email.com',
+      cpf: '567.890.123-44',
+      password: 'senha654',
+      createdAt: '2025-10-03T16:45:00Z',
+      lastLoginAt: '2026-02-08T07:00:00Z',
+      isActive: true,
+      role: 'CIDADAO'
+    },
+    complaintStatus: 'CONCLUIDA'
+  },
+  {
+    id: 26,
+    date: '2026-02-09T13:25:00Z',
     latitude: -23.5733,
     longitude: -46.6417,
-    description: 'Lixo acumulado na Rua Cardeal Arcoverde, próximo à Praça Benedito Calixto',
-    priority: 'MEDIA',
+    description: 'Esgoto na Cardeal Arcoverde transbordou após chuva forte',
+    priority: 'ALTA',
     neighborhood: 'Pinheiros',
     user: {
       id: 108,
@@ -503,41 +567,19 @@ export const complaints: Complaint[] = [
       cpf: '890.123.456-77',
       password: 'senha258',
       createdAt: '2026-01-05T09:30:00Z',
-      lastLoginAt: '2026-02-07T15:00:00Z',
+      lastLoginAt: '2026-02-09T12:00:00Z',
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'CONCLUIDA'
+    complaintStatus: 'EM_ANDAMENTO'
   },
   {
-    id: 25,
-    date: '2026-02-08T08:15:00Z',
-    latitude: -23.5629,
-    longitude: -46.6544,
-    description: 'Buraco na ciclovia da Avenida Faria Lima, sentido Centro, antes da ponte',
-    priority: 'MEDIA',
-    neighborhood: 'Itaim Bibi',
-    user: {
-      id: 110,
-      name: 'Juliana',
-      lastName: 'Gomes',
-      email: 'juliana.gomes@email.com',
-      cpf: '012.345.678-99',
-      password: 'senha741',
-      createdAt: '2026-01-12T10:00:00Z',
-      lastLoginAt: '2026-02-08T07:00:00Z',
-      isActive: true,
-      role: 'CIDADAO'
-    },
-    complaintStatus: 'PENDENTE'
-  },
-  {
-    id: 26,
-    date: '2026-02-09T13:30:00Z',
+    id: 27,
+    date: '2026-02-10T10:10:00Z',
     latitude: -23.5684,
     longitude: -46.6872,
-    description: 'Poste de iluminação inclinado na Praça do Pôr do Sol, risco de queda',
-    priority: 'ALTA',
+    description: 'Iluminação da Praça do Pôr do Sol ainda insuficiente nas laterais',
+    priority: 'BAIXA',
     neighborhood: 'Pinheiros',
     user: {
       id: 112,
@@ -547,28 +589,6 @@ export const complaints: Complaint[] = [
       cpf: '223.344.556-11',
       password: 'senha963',
       createdAt: '2025-04-15T11:30:00Z',
-      lastLoginAt: '2026-02-09T12:00:00Z',
-      isActive: true,
-      role: 'CIDADAO'
-    },
-    complaintStatus: 'EM_ANDAMENTO'
-  },
-  {
-    id: 27,
-    date: '2026-02-10T10:00:00Z',
-    latitude: -23.5421,
-    longitude: -46.6378,
-    description: 'Cheiro de gás forte na Rua 25 de Março, quarteirão entre Rua Direita e Rua da Quitanda',
-    priority: 'ALTA',
-    neighborhood: 'Sé',
-    user: {
-      id: 113,
-      name: 'Eduardo',
-      lastName: 'Martins',
-      email: 'eduardo.martins@email.com',
-      cpf: '334.455.667-22',
-      password: 'senha159',
-      createdAt: '2025-03-28T13:00:00Z',
       lastLoginAt: '2026-02-10T09:00:00Z',
       isActive: true,
       role: 'CIDADAO'
@@ -577,10 +597,10 @@ export const complaints: Complaint[] = [
   },
   {
     id: 28,
-    date: '2026-02-11T15:10:00Z',
+    date: '2026-02-11T15:00:00Z',
     latitude: -23.5567,
     longitude: -46.6498,
-    description: 'Faixa de pedestres apagada na Avenida Rebouças, próximo ao Hospital das Clínicas',
+    description: 'Faixa de pedestres da Rebouças desgastada, mal visível à noite',
     priority: 'MEDIA',
     neighborhood: 'Pinheiros',
     user: {
@@ -599,11 +619,11 @@ export const complaints: Complaint[] = [
   },
   {
     id: 29,
-    date: '2026-02-12T07:50:00Z',
+    date: '2026-02-12T07:55:00Z',
     latitude: -23.5345,
     longitude: -46.6421,
-    description: 'Assento do ponto de ônibus quebrado na Avenida Brigadeiro Luís Antônio, altura do número 2000',
-    priority: 'BAIXA',
+    description: 'Ponto de ônibus da Luís Antônio vandalizado novamente',
+    priority: 'MEDIA',
     neighborhood: 'Bela Vista',
     user: {
       id: 116,
@@ -617,28 +637,28 @@ export const complaints: Complaint[] = [
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'PENDENTE'
+    complaintStatus: 'EM_ANDAMENTO'
   },
   {
     id: 30,
-    date: '2026-02-13T12:25:00Z',
-    latitude: -23.5487,
-    longitude: -46.6356,
-    description: 'Nova rachadura no asfalto da Rua Direita, próximo à Praça da Sé, alargando',
+    date: '2026-02-13T12:40:00Z',
+    latitude: -23.5534,
+    longitude: -46.6401,
+    description: 'Bueiro da Ipiranga com São Luís fez barulho estranho ao passar carro',
     priority: 'ALTA',
-    neighborhood: 'Sé',
+    neighborhood: 'República',
     user: {
-      id: 118,
-      name: 'Vanessa',
-      lastName: 'Melo',
-      email: 'vanessa.melo@email.com',
-      cpf: '889.900.112-77',
-      password: 'senha264',
-      createdAt: '2024-10-08T12:00:00Z',
+      id: 120,
+      name: 'Renata',
+      lastName: 'Dias',
+      email: 'renata.dias@email.com',
+      cpf: '101.112.223-99',
+      password: 'senha864',
+      createdAt: '2024-08-22T10:00:00Z',
       lastLoginAt: '2026-02-13T11:00:00Z',
       isActive: true,
       role: 'CIDADAO'
     },
-    complaintStatus: 'EM_ANDAMENTO'
+    complaintStatus: 'PENDENTE'
   }
 ];
