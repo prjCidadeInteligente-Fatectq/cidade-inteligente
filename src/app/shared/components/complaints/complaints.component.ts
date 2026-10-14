@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Complaint } from "@core/models";
 
 @Component({
@@ -7,10 +7,14 @@ import { Complaint } from "@core/models";
     styleUrl: './complaints.component.css',
     templateUrl: './complaints.component.html',
 })
-export class ComplaintsComponent {
+export class ComplaintsComponent implements OnInit {
     @Input() complaints: Complaint[] = [];
 
     expandedCardId: number | null = null;
+
+    ngOnInit(): void {
+        this.complaints = this.complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA');
+    }
 
     toggleExpand(id: number) {
         if (this.expandedCardId === id) {
