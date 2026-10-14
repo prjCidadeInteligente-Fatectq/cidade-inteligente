@@ -1,14 +1,24 @@
-<header class="header">
-    <h1>Visão geral:</h1>
-    <app-complaint-counter></app-complaint-counter>
-    <app-priority-cards></app-priority-cards>
-</header>
+<div class="page">
+    <header class="header">
+        <h1 class="section-title">Visão geral</h1>
+        <app-complaint-counter></app-complaint-counter>
+        <app-priority-cards></app-priority-cards>
+    </header>
 
-<main>
-    <h1>Atenção necessária:</h1>
-    <h1>Essa semana:</h1>
-</main>
+    <main class="content">
+        <section class="panel">
+            <h1 class="section-title">Atenção necessária</h1>
+            <p class="placeholder">Nenhum alerta crítico no momento.</p>
+        </section>
 
-<footer>
-    Adicionar denuncias por bairro no mapa
-</footer>
+        <section class="panel">
+            <h1 class="section-title">Essa semana</h1>
+            <p class="placeholder">Resumo dos indicadores da semana.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <i class="fa-solid fa-map-location-dot"></i>
+        Adicionar denúncias por bairro no mapa
+    </footer>
+</div>

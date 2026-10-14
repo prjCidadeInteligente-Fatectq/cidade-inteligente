@@ -10,17 +10,73 @@
 :root {
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --color-bg: #eef2f7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+
+  --color-primary: #2d8fd1;
+  --color-primary-dark: #1b6ca8;
+  --color-primary-light: #e8f3fb;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+
+  --transition: 0.2s ease;
 }
 
 * {
   font-family: var(--font-primary);
+  box-sizing: border-box;
 }
 
 code, pre, kbd, samp {
   font-family: var(--font-mono);
 }
 
-body {
-  color: #181818 !important;
+html, body {
   margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--color-text) !important;
+  background-color: var(--color-bg);
+  background-image: radial-gradient(1200px 600px at 100% -10%, rgba(45, 143, 209, 0.12), transparent 60%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
 }

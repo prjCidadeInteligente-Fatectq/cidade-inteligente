@@ -12,7 +12,9 @@
     </li>
 
     <li class="chart-wrapper">
-      <canvas #pizzaChart></canvas>
+      <div class="chart-canvas">
+        <canvas #pizzaChart></canvas>
+      </div>
       <div class="legend" role="list" aria-label="Legenda do gráfico de reclamações">
         @for (item of chartItems; track item.label) {
           <div class="legend-item" role="listitem">
