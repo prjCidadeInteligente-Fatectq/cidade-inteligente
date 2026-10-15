@@ -1,13 +1,13 @@
 <section class="cards">
-    @for (priority of priorities; track priority.name) {
+    @for (priority of priorities; track priority) {
         <article class="card">
             <header class="header" [style.background-color]="priority.color">
-                <span>Prioridade {{ priority.name }} - </span>
+                <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }}</span>
                 <button>Ordenar <i class="fa-solid fa-chevron-down" style="color: #181818;"></i></button>
             </header>
         
             <div class="complaints">
-                <app-complaints [filteredComplaints]="complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-complaints>
+                <app-complaints [filteredComplaints]="complaints.filter(c => c.priority === priority.name && c.complaintStatus !== 'CONCLUÍDA')"></app-complaints>
             </div>
         </article>
     }
