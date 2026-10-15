@@ -20,7 +20,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-06-10T10:00:00Z',
       lastLoginAt: '2026-01-14T15:30:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -44,7 +44,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-07-22T09:15:00Z',
       lastLoginAt: '2026-01-16T10:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -68,7 +68,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-08-05T14:20:00Z',
       lastLoginAt: '2026-01-17T08:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -92,7 +92,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-09-12T11:30:00Z',
       lastLoginAt: '2026-01-18T12:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -116,7 +116,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-10-03T16:45:00Z',
       lastLoginAt: '2026-01-19T10:30:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -140,7 +140,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-11-18T08:00:00Z',
       lastLoginAt: '2026-01-20T06:45:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -164,7 +164,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-12-01T12:00:00Z',
       lastLoginAt: '2026-01-21T11:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -188,7 +188,7 @@ export const complaints: Complaint[] = [
       createdAt: '2026-01-05T09:30:00Z',
       lastLoginAt: '2026-01-22T08:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -212,7 +212,7 @@ export const complaints: Complaint[] = [
       createdAt: '2026-01-10T14:00:00Z',
       lastLoginAt: '2026-01-23T13:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -236,7 +236,7 @@ export const complaints: Complaint[] = [
       createdAt: '2026-01-12T10:00:00Z',
       lastLoginAt: '2026-01-24T07:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -260,7 +260,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-05-20T15:00:00Z',
       lastLoginAt: '2026-01-25T10:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -284,7 +284,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-04-15T11:30:00Z',
       lastLoginAt: '2026-01-26T16:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -308,7 +308,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-03-28T13:00:00Z',
       lastLoginAt: '2026-01-27T08:30:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -332,7 +332,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-02-10T10:00:00Z',
       lastLoginAt: '2026-01-28T12:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -356,7 +356,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-01-25T09:00:00Z',
       lastLoginAt: '2026-01-29T10:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -380,7 +380,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-12-20T14:00:00Z',
       lastLoginAt: '2026-01-30T15:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -404,7 +404,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-11-15T16:00:00Z',
       lastLoginAt: '2026-01-31T07:30:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -428,7 +428,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-10-08T12:00:00Z',
       lastLoginAt: '2026-02-01T09:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -452,7 +452,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-09-30T11:00:00Z',
       lastLoginAt: '2026-02-02T12:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -476,7 +476,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-08-22T10:00:00Z',
       lastLoginAt: '2026-02-03T08:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -500,7 +500,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-06-10T10:00:00Z',
       lastLoginAt: '2026-02-04T12:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -524,7 +524,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-07-22T09:15:00Z',
       lastLoginAt: '2026-02-05T08:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -548,7 +548,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-08-05T14:20:00Z',
       lastLoginAt: '2026-02-06T10:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -572,7 +572,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-09-12T11:30:00Z',
       lastLoginAt: '2026-02-07T15:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -596,7 +596,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-10-03T16:45:00Z',
       lastLoginAt: '2026-02-08T07:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -620,7 +620,7 @@ export const complaints: Complaint[] = [
       createdAt: '2026-01-05T09:30:00Z',
       lastLoginAt: '2026-02-09T12:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -644,7 +644,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-04-15T11:30:00Z',
       lastLoginAt: '2026-02-10T09:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'
@@ -668,7 +668,7 @@ export const complaints: Complaint[] = [
       createdAt: '2025-01-25T09:00:00Z',
       lastLoginAt: '2026-02-11T14:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
     imagePath: '/buraco.jpg'
@@ -692,7 +692,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-12-20T14:00:00Z',
       lastLoginAt: '2026-02-12T06:30:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
     imagePath: '/buraco.jpg'
@@ -716,7 +716,7 @@ export const complaints: Complaint[] = [
       createdAt: '2024-08-22T10:00:00Z',
       lastLoginAt: '2026-02-13T11:00:00Z',
       isActive: true,
-      role: 'CIDADAO'
+      role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
     imagePath: '/buraco.jpg'

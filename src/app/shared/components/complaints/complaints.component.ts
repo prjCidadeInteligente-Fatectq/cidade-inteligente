@@ -8,12 +8,12 @@ import { Complaint } from "@core/models";
     templateUrl: './complaints.component.html',
 })
 export class ComplaintsComponent implements OnInit {
-    @Input() complaints: Complaint[] = [];
+    @Input() filteredComplaints: Complaint[] = [];
 
     expandedCardId: number | null = null;
 
     ngOnInit(): void {
-        this.complaints = this.complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA');
+        
     }
 
     toggleExpand(id: number) {

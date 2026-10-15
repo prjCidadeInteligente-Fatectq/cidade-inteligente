@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Complaint, ComplaintPriority } from '@core/models';
+import { complaints } from '@shared/data/complaints';
 
 @Component({
     selector: 'app-priority-cards',
@@ -6,19 +8,12 @@ import { Component } from "@angular/core";
     styleUrl: './priority-cards.component.css',
     templateUrl: './priority-cards.component.html',
 })
-export class PriorityCardsComponent {
-    priorities = [
-        {
-            name: 'alta',
-            color: '#fc2727cb'
-        },
-        {
-            name: 'média',
-            color: '#e7e00d93'
-        },
-        {
-            name: 'baixa',
-            color: '#0ed15cf3'
-        }
-        ]
+export class PriorityCardsComponent implements OnInit {
+    complaints: Complaint[] = complaints;
+
+    priorities: ComplaintPriority[] = [];
+
+    ngOnInit(): void {
+        
+    }
 }
