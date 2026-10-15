@@ -1,4 +1,4 @@
-@for (complaint of complaints; track complaint.id) {
+@for (complaint of filteredComplaints; track complaint.id) {
     <article class="card">
         <button (click)="toggleExpand(complaint.id)" class="complaint">
             <header class="header">
