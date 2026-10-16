@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from "@angular/core";
-import { Complaint, ComplaintPriority } from '@core/models';
-import { complaints } from '@shared/data/complaints';
-=======
 import { Component, Input, OnInit } from "@angular/core";
 import { Complaint, NeighborhoodPriority } from '@core/models';
 import { complaints } from '@shared/data/complaints';
@@ -12,10 +7,9 @@ interface Priority {
     color: string;
     quantity: number;
 }
->>>>>>> pull-rebase
 
 interface Priority {
-    name: ComplaintPriority;
+    name: NeighborhoodPriority;
     color: string;
     quantity: number;
 }
@@ -26,15 +20,6 @@ interface Priority {
     templateUrl: './priority-cards.component.html',
 })
 export class PriorityCardsComponent implements OnInit {
-<<<<<<< HEAD
-    complaints: Complaint[] = complaints;
-
-    priorities: Priority[] = [
-        {
-            name: 'ALTA',
-            color: '#f83838',
-            quantity: this.complaints.filter(c => c.priority === 'ALTA' && c.complaintStatus !== 'CONCLUÍDA').length
-=======
     @Input() filteredComplaints: Complaint[] = [];
 
     isModalOpen: boolean = false;
@@ -48,28 +33,16 @@ export class PriorityCardsComponent implements OnInit {
             name: 'ALTA',
             color: '#f83838',
             quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'ALTA').length
->>>>>>> pull-rebase
         },
         {
             name: 'MÉDIA',
             color: '#ffff24',
-<<<<<<< HEAD
-            quantity: this.complaints.filter(c => c.priority === 'MÉDIA' && c.complaintStatus !== 'CONCLUÍDA').length
-=======
+
             quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'MÉDIA').length
->>>>>>> pull-rebase
         },
         {
             name: 'BAIXA',
             color: '#45cc47',
-<<<<<<< HEAD
-            quantity: this.complaints.filter(c => c.priority === 'BAIXA' && c.complaintStatus !== 'CONCLUÍDA').length
-        }
-    ];
-
-    ngOnInit(): void {
-        
-=======
             quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'BAIXA').length
         }
     ];
@@ -82,6 +55,5 @@ export class PriorityCardsComponent implements OnInit {
 
     CloseModal() {
         this.isModalOpen = false;
->>>>>>> pull-rebase
     }
 }
