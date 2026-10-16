@@ -6,8 +6,8 @@
                 <button>Ordenar <i class="fa-solid fa-chevron-down" style="color: #181818;"></i></button>
             </header>
         
-            <div class="complaints">
-                <app-complaints [filteredComplaints]="complaints.filter(c => c.priority === priority.name && c.complaintStatus !== 'CONCLUÍDA')"></app-complaints>
+            <div class="neighborhoods">
+                <app-neighborhoods [filteredComplaints]="complaints.filter(c => c.neighborhood.priority === priority.name)"></app-neighborhoods>
             </div>
         </article>
     }

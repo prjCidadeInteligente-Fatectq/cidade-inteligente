@@ -2,6 +2,6 @@ export type NeighborhoodPriority = 'ALTA' | 'MÉDIA' | 'BAIXA';
 
 export interface Neighbohood {
     id: number;
-    neighborhood: string;
+    name: string;
     priority: NeighborhoodPriority;
 }

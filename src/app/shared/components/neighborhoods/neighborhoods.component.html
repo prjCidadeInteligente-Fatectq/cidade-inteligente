@@ -1,0 +1,13 @@
+<section>
+    @for (item of uniqueNeighborhoods; track item.name;) {
+        <button class="neighborhood">
+            <span>
+                {{ item.name }}
+                -
+                {{ item.count }} Denúncias
+            </span>
+
+            <span class="open"><i class="fa-solid fa-chevron-up fa-rotate-90" style="color: #242425;;"></i></span>
+        </button>
+    }
+</section>

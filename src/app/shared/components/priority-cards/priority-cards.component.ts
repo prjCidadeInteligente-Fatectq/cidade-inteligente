@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { Complaint, ComplaintPriority } from '@core/models';
+import { Complaint, NeighborhoodPriority } from '@core/models';
 import { complaints } from '@shared/data/complaints';
 
 interface Priority {
-    name: ComplaintPriority;
+    name: NeighborhoodPriority;
     color: string;
     quantity: number;
 }
+
 @Component({
     selector: 'app-priority-cards',
     standalone: false,
@@ -20,17 +21,17 @@ export class PriorityCardsComponent implements OnInit {
         {
             name: 'ALTA',
             color: '#f83838',
-            quantity: this.complaints.filter(c => c.priority === 'ALTA' && c.complaintStatus !== 'CONCLUÍDA').length
+            quantity: this.complaints.filter(c => c.neighborhood.priority === 'ALTA').length
         },
         {
             name: 'MÉDIA',
             color: '#ffff24',
-            quantity: this.complaints.filter(c => c.priority === 'MÉDIA' && c.complaintStatus !== 'CONCLUÍDA').length
+            quantity: this.complaints.filter(c => c.neighborhood.priority === 'MÉDIA').length
         },
         {
             name: 'BAIXA',
             color: '#45cc47',
-            quantity: this.complaints.filter(c => c.priority === 'BAIXA' && c.complaintStatus !== 'CONCLUÍDA').length
+            quantity: this.complaints.filter(c => c.neighborhood.priority === 'BAIXA').length
         }
     ];
 

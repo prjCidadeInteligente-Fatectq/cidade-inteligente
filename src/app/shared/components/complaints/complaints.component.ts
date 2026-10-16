@@ -1,6 +1,11 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Complaint } from "@core/models";
 
+interface ComplaintStatus {
+    backgroundColor: string;
+    color: string;
+}
+
 @Component({
     selector: 'app-complaints',
     standalone: false,
@@ -11,6 +16,8 @@ export class ComplaintsComponent implements OnInit {
     @Input() filteredComplaints: Complaint[] = [];
 
     expandedCardId: number | null = null;
+
+    
 
     ngOnInit(): void {
         

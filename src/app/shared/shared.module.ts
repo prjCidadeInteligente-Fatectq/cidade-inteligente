@@ -1,3 +1,4 @@
+import { NeighbohoodComponent } from './components/neighborhoods/neighborhoods.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComplaintCounterComponent } from './components/complaint-counter/complaint-counter.component';
@@ -6,8 +7,8 @@ import { ComplaintsComponent } from './components/complaints/complaints.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, ComplaintsComponent],
+  declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, NeighbohoodComponent, ComplaintsComponent],
   imports: [CommonModule],
-  exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, ComplaintsComponent],
+  exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, NeighbohoodComponent, ComplaintsComponent],
 })
 export class SharedModule {}
