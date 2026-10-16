@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Complaint, NeighborhoodPriority } from '@core/models';
 import { complaints } from '@shared/data/complaints';
 
@@ -15,31 +15,31 @@ interface Priority {
     templateUrl: './priority-cards.component.html',
 })
 export class PriorityCardsComponent implements OnInit {
-    complaints: Complaint[] = complaints;
-
-    priorities: Priority[] = [
-        {
-            name: 'ALTA',
-            color: '#f83838',
-            quantity: this.complaints.filter(c => c.neighborhood.priority === 'ALTA').length
-        },
-        {
-            name: 'MÉDIA',
-            color: '#ffff24',
-            quantity: this.complaints.filter(c => c.neighborhood.priority === 'MÉDIA').length
-        },
-        {
-            name: 'BAIXA',
-            color: '#45cc47',
-            quantity: this.complaints.filter(c => c.neighborhood.priority === 'BAIXA').length
-        }
-    ];
+    @Input() filteredComplaints: Complaint[] = [];
 
     isModalOpen: boolean = false;
     selectedNeighborhood: string = ''
 
+    priorities: Priority[] = []
+
     ngOnInit(): void {
-        
+        this.priorities = [
+        {
+            name: 'ALTA',
+            color: '#f83838',
+            quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'ALTA').length
+        },
+        {
+            name: 'MÉDIA',
+            color: '#ffff24',
+            quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'MÉDIA').length
+        },
+        {
+            name: 'BAIXA',
+            color: '#45cc47',
+            quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'BAIXA').length
+        }
+    ];
     }
 
     OpenModal(neighborhood: string) {

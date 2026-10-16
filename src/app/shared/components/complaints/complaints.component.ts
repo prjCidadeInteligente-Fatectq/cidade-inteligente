@@ -17,8 +17,6 @@ export class ComplaintsComponent implements OnInit {
 
     expandedCardId: number | null = null;
 
-    
-
     ngOnInit(): void {
         
     }
