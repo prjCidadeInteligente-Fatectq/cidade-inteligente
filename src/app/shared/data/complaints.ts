@@ -16,7 +16,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3302',
@@ -33,7 +33,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3303',
@@ -50,7 +50,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3304',
@@ -67,7 +67,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3305',
@@ -84,7 +84,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3306',
@@ -101,7 +101,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3307',
@@ -118,7 +118,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3308',
@@ -135,7 +135,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg', '/buraco.jpg', '/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3309',
@@ -152,7 +152,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3310',
@@ -169,7 +169,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3311',
@@ -186,7 +186,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3312',
@@ -203,7 +203,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3313',
@@ -220,7 +220,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3314',
@@ -237,7 +237,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3315',
@@ -254,7 +254,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3316',
@@ -271,7 +271,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3317',
@@ -288,7 +288,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3318',
@@ -305,7 +305,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3319',
@@ -322,7 +322,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3320',
@@ -339,7 +339,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3321',
@@ -356,7 +356,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3322',
@@ -373,7 +373,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3323',
@@ -390,7 +390,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3324',
@@ -407,7 +407,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3325',
@@ -424,7 +424,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3326',
@@ -441,7 +441,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3327',
@@ -458,7 +458,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3328',
@@ -475,7 +475,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'CONCLUÍDA',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3329',
@@ -492,7 +492,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3330',
@@ -509,6 +509,6 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'PENDENTE',
-    imagePath: '/buraco.jpg'
+    imagesPaths: ['/buraco.jpg']
   }
 ];

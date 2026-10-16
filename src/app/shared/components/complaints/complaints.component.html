@@ -22,9 +22,9 @@
 
                 @if (expandedCardId === complaint.id) {
                     <div class="images">
-                        <img src="/buraco.jpg" alt="imagem de buraco">
-                        <img src="/buraco.jpg" alt="imagem de buraco">
-                        <img src="/buraco.jpg" alt="imagem de buraco">
+                        @for (imagePath of complaint.imagesPaths; track imagePath) {
+                            <img [src]="imagePath">
+                        }
                     </div>
                 }   
         

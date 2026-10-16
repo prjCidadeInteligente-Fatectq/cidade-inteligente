@@ -15,5 +15,5 @@ export interface Complaint {
     neighborhood: Neighbohood;
     user: User;
     complaintStatus: ComplaintStatus;
-    imagePath: string;
+    imagesPaths: string[];
 }
