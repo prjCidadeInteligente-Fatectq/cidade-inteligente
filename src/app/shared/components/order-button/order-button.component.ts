@@ -22,7 +22,7 @@ import { Component, EventEmitter, HostListener, Output } from "@angular/core";
 export class OrderButtonComponent {
     @Output() SelectedOption = new EventEmitter<string>();
 
-    buttonText: string = 'Ordenar';
+    buttonText: string = 'ORDENAR';
     isMenuOpen: boolean = false;
 
     toggleMenu() {
@@ -30,7 +30,7 @@ export class OrderButtonComponent {
     }
 
     SelectOption(option: string) {
-        this.buttonText = `Ordenar: ${option}`;
+        this.buttonText = `ORDENAR: ${option}`;
         this.isMenuOpen = false;
 
         this.SelectedOption.emit(option);
