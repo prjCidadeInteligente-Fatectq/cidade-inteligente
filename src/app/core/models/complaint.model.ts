@@ -9,6 +9,7 @@ export interface Complaint {
     date: string;
     latitude: number;
     longitude: number;
+    street: string;
     description?: string;
     neighborhood: Neighbohood;
     user: User;

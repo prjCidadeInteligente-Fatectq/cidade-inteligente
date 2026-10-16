@@ -1,8 +1,8 @@
 <div class="page">
     <header class="header">
         <h1 class="section-title">Visão geral</h1>
-        <app-complaint-counter></app-complaint-counter>
-        <app-priority-cards></app-priority-cards>
+        <app-complaint-counter [complaints]="complaints"></app-complaint-counter>
+        <app-priority-cards [filteredComplaints]="complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-priority-cards>
     </header>
 
     <main class="content">
