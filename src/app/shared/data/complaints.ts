@@ -135,7 +135,7 @@ export const complaints: Complaint[] = [
       role: 'CIDADÃO'
     },
     complaintStatus: 'EM ANDAMENTO',
-    imagesPaths: ['/buraco.jpg', '/buraco.jpg', '/buraco.jpg']
+    imagesPaths: ['/buraco-2.jpg']
   },
   {
     id: '3f2504e0-4f89-41d3-9a0c-0305e82c3309',

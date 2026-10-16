@@ -19,8 +19,16 @@
     transition: background var(--transition);
 }
 
+.complaint.expanded {
+    background-color: #f7f7f7;
+}
+
 .complaint:hover {
-    background: rgba(45, 143, 209, 0.06);
+    background: #2d8fd114;
+}
+
+.complaint.expanded:hover {
+    background: #216da01d;
 }
 
 .header {
@@ -38,7 +46,9 @@
 }
 
 .info.expanded {
+    text-align: left;
     height: 200px;
+    width: 400px;
 }
 
 .main-info {
@@ -99,7 +109,7 @@
 }
 
 .images img {
-    width: 300px;
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: var(--radius-sm);

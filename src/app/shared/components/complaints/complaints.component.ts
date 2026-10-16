@@ -16,17 +16,22 @@ interface ComplaintStatus {
 export class ComplaintsComponent implements OnInit {
     @Input() filteredComplaints: Complaint[] = [];
 
-    expandedCardId: string | null = null;
+    expandedCardIds = new Set<string>();
 
     ngOnInit(): void {
         
     }
 
+    isExpanded(id: string): boolean {
+        return this.expandedCardIds.has(id);
+    }
+
     toggleExpand(id: string) {
-        if (this.expandedCardId === id) {
-            this.expandedCardId = null;
+        if (this.expandedCardIds.has(id)) {
+            this.expandedCardIds.delete(id);
         } else {
-            this.expandedCardId = id;
+            this.expandedCardIds.add(id);
         }
+        this.expandedCardIds = new Set(this.expandedCardIds);
     }
 }

@@ -1,8 +1,8 @@
 @for (complaint of filteredComplaints; track complaint.id) {
     <article class="card">
-        <button (click)="toggleExpand(complaint.id)" class="complaint">
+        <button (click)="toggleExpand(complaint.id)" class="complaint" [class.expanded]="isExpanded(complaint.id)">
             <header class="header">
-                <div class="info" [class.expanded]="expandedCardId === complaint.id">
+                <div class="info" [class.expanded]="isExpanded(complaint.id)">
                     <div class="main-info">
                         <span class="desc">{{ complaint.problem }}</span>
                         <small class="small">
@@ -15,12 +15,12 @@
                         </small>
                     </div>
 
-                    @if (expandedCardId === complaint.id) {
+                    @if (isExpanded(complaint.id)) {
                         <span class="complaint-description">Descrição: {{ complaint.description }}.</span>
                     }  
                 </div>
 
-                @if (expandedCardId === complaint.id) {
+                @if (isExpanded(complaint.id)) {
                     <div class="images">
                         @for (imagePath of complaint.imagesPaths; track imagePath) {
                             <img [src]="imagePath">
@@ -31,7 +31,7 @@
                 <div class="additional-info">
                     <span class="status" style="background-color: #fef3c7; color: #92400e">{{ complaint.complaintStatus }}</span>
         
-                    @if (expandedCardId !== complaint.id) {
+                    @if (!isExpanded(complaint.id)) {
                         <i class="fa-solid fa-chevron-down" style="color: #181818;"></i>
                     } @else {
                         <i class="fa-solid fa-chevron-up" style="color: #181818;"></i>
