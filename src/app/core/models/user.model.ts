@@ -1,7 +1,7 @@
 export type Role = 'ADMIN' | 'CIDADÃO';
 
 export interface User {
-    id: number;
+    id: string;
     name?: string;
     lastName?: string;
     phone: string;

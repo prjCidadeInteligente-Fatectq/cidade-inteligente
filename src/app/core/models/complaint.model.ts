@@ -5,7 +5,7 @@ import { Neighbohood } from './neighborhood.model';
 export type ComplaintStatus = 'PENDENTE' | 'EM ANDAMENTO' | 'CONCLUÍDA';
 
 export interface Complaint {
-    id: number;
+    id: string;
     problem: string;
     date: string;
     latitude: number;

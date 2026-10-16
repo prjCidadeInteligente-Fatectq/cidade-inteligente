@@ -16,13 +16,13 @@ interface ComplaintStatus {
 export class ComplaintsComponent implements OnInit {
     @Input() filteredComplaints: Complaint[] = [];
 
-    expandedCardId: number | null = null;
+    expandedCardId: string | null = null;
 
     ngOnInit(): void {
         
     }
 
-    toggleExpand(id: number) {
+    toggleExpand(id: string) {
         if (this.expandedCardId === id) {
             this.expandedCardId = null;
         } else {
