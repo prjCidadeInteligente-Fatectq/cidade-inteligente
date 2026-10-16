@@ -2,17 +2,31 @@
     <article class="card">
         <button (click)="toggleExpand(complaint.id)" class="complaint">
             <header class="header">
-                <div class="info">
-                    <span class="desc">{{ complaint.problem }}</span>
-                    <small class="small">
-                        <i class="fa-solid fa-location-dot"></i>
-                        {{ complaint.street }}
-                    </small>
-                    <small class="small">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        Denúncia realizada em: {{ complaint.date }}
-                    </small>
+                <div class="info" [class.expanded]="expandedCardId === complaint.id">
+                    <div class="main-info">
+                        <span class="desc">{{ complaint.problem }}</span>
+                        <small class="small">
+                            <i class="fa-solid fa-location-dot"></i>
+                            {{ complaint.street }}
+                        </small>
+                        <small class="small">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            Denúncia realizada em: {{ complaint.date }}
+                        </small>
+                    </div>
+
+                    @if (expandedCardId === complaint.id) {
+                        <span class="complaint-description">Descrição: {{ complaint.description }}.</span>
+                    }  
                 </div>
+
+                @if (expandedCardId === complaint.id) {
+                    <div class="images">
+                        <img src="/buraco.jpg" alt="imagem de buraco">
+                        <img src="/buraco.jpg" alt="imagem de buraco">
+                        <img src="/buraco.jpg" alt="imagem de buraco">
+                    </div>
+                }   
         
                 <div class="additional-info">
                     <span class="status" style="background-color: #fef3c7; color: #92400e">{{ complaint.complaintStatus }}</span>
@@ -25,12 +39,5 @@
                 </div>
             </header>
         </button>
-        
-            @if (expandedCardId === complaint.id) {
-                <div class="body">
-                    <img src="/buraco.jpg" alt="imagem de buraco">
-                    <p>Descrição: {{ complaint.description }}.</p>
-                </div>
-            }
     </article>
 }
