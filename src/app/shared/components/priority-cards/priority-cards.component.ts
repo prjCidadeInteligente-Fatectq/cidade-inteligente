@@ -35,7 +35,19 @@ export class PriorityCardsComponent implements OnInit {
         }
     ];
 
+    isModalOpen: boolean = false;
+    selectedNeighborhood: string = ''
+
     ngOnInit(): void {
         
+    }
+
+    OpenModal(neighborhood: string) {
+        this.selectedNeighborhood = neighborhood;
+        this.isModalOpen = true
+    }
+
+    CloseModal() {
+        this.isModalOpen = false;
     }
 }

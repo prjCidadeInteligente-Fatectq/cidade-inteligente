@@ -7,8 +7,14 @@
             </header>
         
             <div class="neighborhoods">
-                <app-neighborhoods [filteredComplaints]="complaints.filter(c => c.neighborhood.priority === priority.name)"></app-neighborhoods>
+                <app-neighborhoods (ShowComplaints)="OpenModal($event)"
+                [filteredComplaints]="complaints.filter(c => c.neighborhood.priority === priority.name)"></app-neighborhoods>
             </div>
         </article>
     }
 </section>
+
+@if (isModalOpen) {
+    <app-complaints-modal [neighborhood]="selectedNeighborhood"
+    (HideComplaints)="CloseModal()"></app-complaints-modal>
+}
