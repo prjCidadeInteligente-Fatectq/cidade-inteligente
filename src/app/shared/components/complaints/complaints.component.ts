@@ -1,5 +1,13 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Complaint } from "@core/models";
+<<<<<<< HEAD
+=======
+
+interface ComplaintStatus {
+    backgroundColor: string;
+    color: string;
+}
+>>>>>>> pull-rebase
 
 @Component({
     selector: 'app-complaints',

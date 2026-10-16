@@ -1,0 +1,16 @@
+.neighborhood {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #e3e3e3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.open i {
+    font-size: 14px;
+}

@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { Complaint } from '@core/models';
+<<<<<<< HEAD
 import { complaints } from '@shared/data/complaints'
+=======
+>>>>>>> pull-rebase
 
 interface ChartItem {
   label: string;
@@ -16,7 +19,11 @@ interface ChartItem {
   templateUrl: './complaint-counter.component.html',
 })
 export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestroy {
+<<<<<<< HEAD
   complaints: Complaint[] = complaints;
+=======
+  @Input() complaints: Complaint[] = [];
+>>>>>>> pull-rebase
 
   @ViewChild('pizzaChart')
   pizzaChart!: ElementRef<HTMLCanvasElement>;

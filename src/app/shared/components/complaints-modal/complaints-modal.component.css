@@ -1,0 +1,81 @@
+/* Fundo escurecido que cobre a tela (Backdrop) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Caixa do Modal ocupando 90% da largura e 90% da altura */
+.modal-container {
+  background-color: #ffffff;
+  width: 90%;       /* Ocupa exatamente 90% da largura da tela */
+  height: 90%;      /* Ocupa exatamente 90% da altura da tela */
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.2s ease-out;
+}
+
+/* Cabeçalho do Modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333333;
+  font-weight: 600;
+}
+
+/* Botão "X" para fechar */
+.btn-fechar {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #666666;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.btn-fechar:hover {
+  color: #000000;
+}
+
+/* Corpo do Modal onde a lista vai aparecer */
+.modal-body {
+  flex: 1;           /* Ocupa todo o espaço restante abaixo do cabeçalho */
+  padding: 24px;
+  overflow-y: auto;  /* Permite rolar se o conteúdo for maior que os 90vh */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Animações suaves de abertura */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

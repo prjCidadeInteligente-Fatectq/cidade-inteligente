@@ -1,8 +1,8 @@
 import { User } from './user.model';
 
-export type ComplaintStatus = 'PENDENTE' | 'EM ANDAMENTO' | 'CONCLUÍDA';
+import { Neighbohood } from './neighborhood.model';
 
-export type ComplaintPriority = 'ALTA' | 'MÉDIA' | 'BAIXA';
+export type ComplaintStatus = 'PENDENTE' | 'EM ANDAMENTO' | 'CONCLUÍDA';
 
 export interface Complaint {
     id: number;
@@ -10,9 +10,9 @@ export interface Complaint {
     date: string;
     latitude: number;
     longitude: number;
+    street: string;
     description?: string;
-    priority: ComplaintPriority;
-    neighborhood: string;
+    neighborhood: Neighbohood;
     user: User;
     complaintStatus: ComplaintStatus;
     imagePath: string;

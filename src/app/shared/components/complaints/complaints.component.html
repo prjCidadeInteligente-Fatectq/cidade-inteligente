@@ -6,7 +6,11 @@
                     <span class="desc">{{ complaint.problem }}</span>
                     <small class="small">
                         <i class="fa-solid fa-location-dot"></i>
+<<<<<<< HEAD
                         {{ complaint.neighborhood }}
+=======
+                        {{ complaint.street }}
+>>>>>>> pull-rebase
                     </small>
                     <small class="small">
                         <i class="fa-regular fa-calendar-days"></i>
@@ -15,7 +19,11 @@
                 </div>
         
                 <div class="additional-info">
+<<<<<<< HEAD
                     <span class="status">{{ complaint.complaintStatus }}</span>
+=======
+                    <span class="status" style="background-color: #fef3c7; color: #92400e">{{ complaint.complaintStatus }}</span>
+>>>>>>> pull-rebase
         
                     @if (expandedCardId !== complaint.id) {
                         <i class="fa-solid fa-chevron-down" style="color: #181818;"></i>
