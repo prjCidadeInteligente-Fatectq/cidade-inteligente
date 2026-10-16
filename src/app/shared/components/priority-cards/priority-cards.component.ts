@@ -56,4 +56,8 @@ export class PriorityCardsComponent implements OnInit {
     CloseModal() {
         this.isModalOpen = false;
     }
+
+    OrderComplaints() {
+
+    }
 }

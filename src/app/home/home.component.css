@@ -1,7 +1,10 @@
 .page {
+    display: flex;
+    flex-direction: column;
     max-width: 1400px;
     margin: 0 auto;
     padding: 28px 32px 48px;
+    gap: 18px;
 }
 
 .header {

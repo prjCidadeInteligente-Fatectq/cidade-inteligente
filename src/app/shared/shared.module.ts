@@ -6,10 +6,13 @@ import { PriorityCardsComponent } from './components/priority-cards/priority-car
 import { ComplaintsComponent } from './components/complaints/complaints.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ComplaintsModalComponent } from './components/complaints-modal/complaints-modal.component';
+import { OrderButtonComponent } from './components/order-button/order-button.component';
 
 @NgModule({
-  declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent],
+  declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OrderButtonComponent,
+                  NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent],
   imports: [CommonModule],
-  exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent],
+  exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OrderButtonComponent,
+            NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent],
 })
 export class SharedModule {}

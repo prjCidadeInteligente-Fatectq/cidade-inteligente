@@ -3,7 +3,7 @@
         <article class="card">
             <header class="header" [style.background-color]="priority.color">
                 <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }}</span>
-                <button>Ordenar <i class="fa-solid fa-chevron-down" style="color: #181818;"></i></button>
+                <app-order-button (SelectedOption)="OrderComplaints()"></app-order-button>
             </header>
         
 
