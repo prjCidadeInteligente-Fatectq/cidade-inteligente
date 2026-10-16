@@ -11,6 +11,10 @@
     cursor: pointer;
 }
 
+.neighborhood:hover {
+    background: #2d8fd114;
+}
+
 .open i {
     font-size: 14px;
 }
