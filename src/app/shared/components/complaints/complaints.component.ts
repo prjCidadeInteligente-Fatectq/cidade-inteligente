@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Complaint } from "@core/models";
+import { Complaint, ComplaintStatusType } from "@core/models";
 
 
 interface ComplaintStatus {
-    backgroundColor: string;
-    color: string;
+    status: ComplaintStatusType;
+    backgroundColor?: string;
+    color?: string;
 }
 
 @Component({
@@ -18,8 +19,21 @@ export class ComplaintsComponent implements OnInit {
 
     expandedCardIds = new Set<string>();
 
+    complaintStatus: ComplaintStatus[] = [];
+
     ngOnInit(): void {
-        
+        this.complaintStatus = [
+            {
+                status: 'PENDENTE',
+                backgroundColor: '#fef3c7',
+                color: '#92400e'
+            },
+            {
+                status: 'EM ANDAMENTO',
+                backgroundColor: '#2d8fd18c',
+                color: '#206999'
+            },
+        ]
     }
 
     isExpanded(id: string): boolean {

@@ -43,9 +43,9 @@
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .panel {

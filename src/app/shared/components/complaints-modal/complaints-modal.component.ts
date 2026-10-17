@@ -10,7 +10,14 @@ import { Complaint } from "@core/models";
       <div class="modal-container" (click)="$event.stopPropagation()">
         
         <div class="modal-header">
-          <h3>Denúncias - {{ neighborhoodName }}</h3>
+          <h3>Denúncias - 
+            @if (neighborhoodName) {
+              {{ neighborhoodName }}
+            } @else if (date) {
+              {{ date | date: 'dd/MM/yyyy' }}
+            }
+
+          </h3>
           <button class="btn-fechar" (click)="HideModal()">&times;</button>
         </div>
 
@@ -23,7 +30,8 @@ import { Complaint } from "@core/models";
     `
 })
 export class ComplaintsModalComponent {
-    @Input() neighborhoodName: string = '';
+    @Input() neighborhoodName?: string = '';
+    @Input() date?: Date | null = null;
     @Input() filteredComplaints: Complaint[] = [];
     @Output() HideComplaints = new EventEmitter<string>
 

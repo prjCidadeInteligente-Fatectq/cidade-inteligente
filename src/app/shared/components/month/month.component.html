@@ -1,0 +1,47 @@
+<div class="calendar-header">
+    <button
+        type="button"
+        (click)="previousMonth()"
+        aria-label="Mês anterior"
+    >
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <h2>{{ monthLabel }}</h2>
+
+    <button
+        type="button"
+        (click)="nextMonth()"
+        [disabled]="!canGoNext()"
+        aria-label="Próximo mês"
+    >
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+</div>
+
+<div class="calendar">
+    @for (day of ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']; track day) {
+        <div class="weekday">
+            {{ day }}
+        </div>
+    }
+    
+    @for (day of days; track day) {
+        <button class="calendar-day" (click)="toggleIsDaySelected(day)"
+        [class.other-month]="day.getMonth() !== currentDate.getMonth()"
+        [class.selected]="selectedDate?.getTime() === day.getTime()">
+            <span>{{ day.getDate() }}</span>
+            
+        </button>
+    }
+    
+    @if (isModalOpen && selectedDate !== null) {
+        <app-complaints-modal (HideComplaints)="CloseModal()"
+            [date]="selectedDate"></app-complaints-modal>
+    }
+
+    <button class="show-complaints" (click)="OpenModal()"
+        [disabled]="!isDaySelected" [class.disabled]="!isDaySelected">
+                {{isDaySelected ? 'Ver denúncias' : 'Selecione um dia para ver as denúncias' }}
+    </button>
+</div>

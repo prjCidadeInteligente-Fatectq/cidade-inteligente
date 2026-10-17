@@ -1,4 +1,4 @@
-import { Complaint, ComplaintStatus } from './complaint.model';
+import { Complaint, ComplaintStatusType } from './complaint.model';
 import { User } from './user.model';
 
 export interface StatusHistory {
@@ -6,5 +6,5 @@ export interface StatusHistory {
     changedAt: string;
     user: User;
     complaint: Complaint;
-    complaintStatus: ComplaintStatus;
+    complaintStatusType: ComplaintStatusType;
 }
