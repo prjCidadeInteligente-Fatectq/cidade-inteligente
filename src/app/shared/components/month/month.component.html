@@ -31,7 +31,7 @@
         [class.other-month]="day.getMonth() !== currentDate.getMonth()"
         [class.selected]="selectedDate?.getTime() === day.getTime()">
             <span>{{ day.getDate() }}</span>
-            
+            <span class="complaints">{{ getComplaintsCount(day) }} denúncias</span>
         </button>
     }
     

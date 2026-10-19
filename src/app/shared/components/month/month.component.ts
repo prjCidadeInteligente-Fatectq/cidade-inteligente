@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Complaint } from '@core/models';
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'app-month',
@@ -7,6 +8,8 @@ import { Component } from "@angular/core";
     templateUrl: './month.component.html'
 })
 export class MonthComponent {
+    @Input() complaints: Complaint[] = [];
+
     currentDate = new Date();
 
     days: Date[] = [];
@@ -73,6 +76,16 @@ export class MonthComponent {
             month: 'long',
             year: 'numeric'
         });
+    }
+
+    getComplaintsCount(day: Date): number {
+        const year = day.getFullYear();
+        const month = String(day.getMonth() + 1).padStart(2, '0');
+        const dayNum = String(day.getDate()).padStart(2, '0');
+        
+        const calendarDateString = `${year}-${month}-${dayNum}`;
+        
+        return this.complaints.filter(c => { return c.date && c.date.startsWith(calendarDateString); }).length;
     }
 
     toggleIsDaySelected(date: Date) {
