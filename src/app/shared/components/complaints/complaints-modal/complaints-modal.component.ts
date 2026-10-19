@@ -1,4 +1,4 @@
-import { ComplaintStatusType } from './../../../core/models/complaint.model';
+import { ComplaintStatusType } from '../../../../core/models/complaint.model';
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Complaint } from "@core/models";
 
