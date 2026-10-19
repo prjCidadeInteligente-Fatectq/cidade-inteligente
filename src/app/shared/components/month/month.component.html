@@ -31,13 +31,13 @@
         [class.other-month]="day.getMonth() !== currentDate.getMonth()"
         [class.selected]="selectedDate?.getTime() === day.getTime()">
             <span>{{ day.getDate() }}</span>
-            <span class="complaints">{{ getComplaintsCount(day) }} denúncias</span>
+            <span class="complaints">{{ getFilteredComplaintsByDate(day, 'COUNT') }} denúncias</span>
         </button>
     }
     
     @if (isModalOpen && selectedDate !== null) {
         <app-complaints-modal (HideComplaints)="CloseModal()"
-            [date]="selectedDate"></app-complaints-modal>
+            [date]="selectedDate" [filteredComplaints]="getFilteredComplaintsByDate(selectedDate, 'FILTER')"></app-complaints-modal>
     }
 
     <button class="show-complaints" (click)="OpenModal()"

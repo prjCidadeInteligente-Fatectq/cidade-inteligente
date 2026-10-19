@@ -1,6 +1,8 @@
 import { Complaint } from '@core/models';
 import { Component, Input } from "@angular/core";
 
+type Flow = 'COUNT' | 'FILTER'
+
 @Component({
     selector: 'app-month',
     standalone: false,
@@ -78,14 +80,19 @@ export class MonthComponent {
         });
     }
 
-    getComplaintsCount(day: Date): number {
+    getFilteredComplaintsByDate(day: Date, flow: Flow): any {
         const year = day.getFullYear();
         const month = String(day.getMonth() + 1).padStart(2, '0');
         const dayNum = String(day.getDate()).padStart(2, '0');
         
         const calendarDateString = `${year}-${month}-${dayNum}`;
         
-        return this.complaints.filter(c => { return c.date && c.date.startsWith(calendarDateString); }).length;
+        if (flow === 'COUNT') {
+            return this.complaints.filter(c => { return c.registerDate && c.registerDate.startsWith(calendarDateString); }).length;
+        } else if (flow === 'FILTER') {
+            return this.complaints.filter(c => { return c.registerDate && c.registerDate.startsWith(calendarDateString); });
+        }
+        else return;
     }
 
     toggleIsDaySelected(date: Date) {
@@ -102,5 +109,6 @@ export class MonthComponent {
     CloseModal() {
         this.selectedDate = null;
         this.isModalOpen = false
+        this.isDaySelected = false;
     }
 }

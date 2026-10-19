@@ -7,7 +7,7 @@ export type ComplaintStatusType = 'PENDENTE' | 'EM ANDAMENTO' | 'CONCLUÍDA';
 export interface Complaint {
     id: string;
     problem: string;
-    date: string;
+    registerDate: string;
     latitude: number;
     longitude: number;
     street: string;

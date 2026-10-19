@@ -15,7 +15,7 @@ interface ComplaintStatus {
     templateUrl: './complaints.component.html',
 })
 export class ComplaintsComponent implements OnInit {
-    @Input() filteredComplaints: Complaint[] = [];
+    @Input() filteredComplaints?: Complaint[] = [];
 
     expandedCardIds = new Set<string>();
 

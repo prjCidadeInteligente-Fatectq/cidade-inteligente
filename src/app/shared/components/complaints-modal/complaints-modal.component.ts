@@ -1,3 +1,4 @@
+import { ComplaintStatusType } from './../../../core/models/complaint.model';
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Complaint } from "@core/models";
 
@@ -22,7 +23,17 @@ import { Complaint } from "@core/models";
         </div>
 
         <div class="modal-body">
-            <app-complaints [filteredComplaints]="filteredComplaints.filter(c => c.neighborhood.name === neighborhoodName)"></app-complaints>
+          @if (neighborhoodName) {
+            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.neighborhood.name === neighborhoodName)">
+            </app-complaints>
+          } @else if (date) { 
+            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-complaints>
+
+            <h3>Concluídas:</h3>
+            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.complaintStatus === 'CONCLUÍDA')"></app-complaints>
+          }
+        
+            
         </div>
 
       </div>
@@ -32,8 +43,10 @@ import { Complaint } from "@core/models";
 export class ComplaintsModalComponent {
     @Input() neighborhoodName?: string = '';
     @Input() date?: Date | null = null;
-    @Input() filteredComplaints: Complaint[] = [];
+    @Input() filteredComplaints?: Complaint[] = [];
     @Output() HideComplaints = new EventEmitter<string>
+
+    notConcludedComplaints?: Complaint[] = this.filteredComplaints?.filter(c => c.complaintStatus === 'CONCLUÍDA');
 
     HideModal() {
         this.HideComplaints.emit();
