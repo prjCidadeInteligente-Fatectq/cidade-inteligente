@@ -6,7 +6,7 @@
     </header>
 
     <main class="content">
-        <section class="panel">
+        <section class="need-attention">
             <h1 class="section-title">Atenção necessária - Denúncias realizadas há mais de uma semana</h1>
             <article class="container">
                 <app-need-attention [filteredComplaints]="complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-need-attention>
