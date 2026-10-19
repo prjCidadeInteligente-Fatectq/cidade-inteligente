@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { sequenceEqual } from "rxjs";
 
 @Component({
     selector: 'app-month',
@@ -83,7 +82,7 @@ export class MonthComponent {
 
     OpenModal() {
         if (this.selectedDate === null) return;
-        
+
         this.isModalOpen = true;
     }
 

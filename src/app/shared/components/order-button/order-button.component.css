@@ -1,10 +1,8 @@
-/* Container principal */
 .dropdownw {
     position: relative;
     display: inline-block;
 }
 
-/* Botão principal de "Ordenar" */
 .dropbtn {
     background-color: #ffffffc6;
     color: #333333;
@@ -25,33 +23,31 @@
     border-color: #999999;
 }
 
-/* Seta indicativa no botão principal */
 .dropbtn::after {
     content: "▼";
     font-size: 10px;
     margin-left: 4px;
 }
 
-/* Caixa do menu dropdown (escondida por padrão) */
 .dropdown-content {
     display: none;
     position: absolute;
+    top: calc(100% + 8px);
     background-color: #ffffff;
-    min-width: 200px;
+    width: max-content;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    z-index: 10;
+    z-index: 3;
     border-radius: 6px;
-    margin-top: 6px;
+    margin-bottom: 6px;
     border: 1px solid #e1e4e8;
     overflow: hidden;
 }
 
-/* Classe acionada via Angular para mostrar o menu */
 .dropdown-content.show {
     display: block;
+    z-index: 10;
 }
 
-/* Itens/Botões de opção dentro do menu */
 .dropdown-item {
     color: #333333;
     padding: 12px 16px;

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, Input, Output } from "@angular/core";
 
 @Component({
     selector: 'app-order-button',
@@ -11,22 +11,24 @@ import { Component, EventEmitter, HostListener, Output } from "@angular/core";
             </button>
         
             <div class="dropdown-content" [class.show]="isMenuOpen">
-                <button class="dropdown-item" (click)="SelectOption('A &rarr; Z')">A &rarr; Z</button>
-                <button class="dropdown-item" (click)="SelectOption('Z &rarr; A')">Z &rarr; A</button>
-                <button class="dropdown-item" (click)="SelectOption('Mais denúncias')">Mais denúncias</button>
-                <button class="dropdown-item" (click)="SelectOption('Menos denúncias')">Menos denúncias</button>
+                    <button class="dropdown-item" (click)="SelectOption('A &rarr; Z')">A &rarr; Z</button>
+                    <button class="dropdown-item" (click)="SelectOption('Z &rarr; A')">Z &rarr; A</button>
+                    <button class="dropdown-item" (click)="SelectOption('Mais denúncias')">Mais denúncias</button>
+                    <button class="dropdown-item" (click)="SelectOption('Menos denúncias')">Menos denúncias</button>
             </div>
         </div>
     `
 })
 export class OrderButtonComponent {
+    @Input() isMenuOpen: boolean = false;
+    @Output() MenuChanges = new EventEmitter<boolean>();
     @Output() SelectedOption = new EventEmitter<string>();
 
     buttonText: string = 'ORDENAR';
-    isMenuOpen: boolean = false;
 
     toggleMenu() {
         this.isMenuOpen = !this.isMenuOpen;
+        this.MenuChanges.emit(this.isMenuOpen);
     }
 
     SelectOption(option: string) {
@@ -42,6 +44,7 @@ export class OrderButtonComponent {
 
         if (!target.closest('.dropdownw')) {
             this.isMenuOpen = false;
+            this.MenuChanges.emit(false);
         }
     }
 }

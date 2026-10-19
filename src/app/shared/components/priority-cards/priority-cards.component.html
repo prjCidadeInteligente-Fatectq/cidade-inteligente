@@ -1,22 +1,31 @@
 <section class="cards">
-    @for (priority of priorities; track priority) {
-        <article class="card">
+    @for (priority of priorities; track priority.name) {
+        <article class="card" (mouseenter)="activeMenuPriority = null">
             <header class="header" [style.background-color]="priority.color">
                 <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }}</span>
-                <app-order-button (SelectedOption)="OrderComplaints()"></app-order-button>
+                
+                <app-order-button 
+                    (SelectedOption)="OrderComplaints()"
+                    (MenuChanges)="toggleMenu(priority.name, $event)"
+                    [isMenuOpen]="activeMenuPriority === priority.name"
+                    >
+                </app-order-button>
             </header>
         
-
             <div class="neighborhoods">
-                <app-neighborhoods (ShowComplaints)="OpenModal($event)"
-                [filteredComplaints]="filteredComplaints.filter(c => c.neighborhood.priority === priority.name)"></app-neighborhoods>
+                <app-neighborhoods 
+                    (ShowComplaints)="OpenModal($event)"
+                    [filteredComplaints]="filteredComplaints.filter(c => c.neighborhood.priority === priority.name)">
+                </app-neighborhoods>
             </div>
         </article>
     }
 </section>
 
 @if (isModalOpen) {
-    <app-complaints-modal [neighborhoodName]="selectedNeighborhood"
-    [filteredComplaints]="filteredComplaints"
-    (HideComplaints)="CloseModal()"></app-complaints-modal>
+    <app-complaints-modal 
+        [neighborhoodName]="selectedNeighborhood"
+        [filteredComplaints]="filteredComplaints"
+        (HideComplaints)="CloseModal()">
+    </app-complaints-modal>
 }

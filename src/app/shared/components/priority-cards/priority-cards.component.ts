@@ -23,6 +23,7 @@ export class PriorityCardsComponent implements OnInit {
     @Input() filteredComplaints: Complaint[] = [];
 
     isModalOpen: boolean = false;
+    activeMenuPriority: string | null = null;
     selectedNeighborhood: string = ''
 
     priorities: Priority[] = []
@@ -55,6 +56,10 @@ export class PriorityCardsComponent implements OnInit {
 
     CloseModal() {
         this.isModalOpen = false;
+    }
+
+    toggleMenu(priorityName: string, isMenuOpen: boolean) {
+        this.activeMenuPriority = isMenuOpen ? priorityName : null;
     }
 
     OrderComplaints() {
