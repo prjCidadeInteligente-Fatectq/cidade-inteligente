@@ -8,12 +8,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ComplaintsModalComponent } from './components/complaints/complaints-modal/complaints-modal.component';
 import { OrderButtonComponent } from './components/order-button/order-button.component';
 import { MonthComponent } from './components/month/month.component';
+import { NeedAttentionComponent } from './components/need-attention/need-attention.component';
 
 @NgModule({
   declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OrderButtonComponent,
-                  NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent],
+                  NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent, NeedAttentionComponent],
   imports: [CommonModule],
   exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OrderButtonComponent,
-            NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent],
+            NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent, NeedAttentionComponent],
 })
 export class SharedModule {}
