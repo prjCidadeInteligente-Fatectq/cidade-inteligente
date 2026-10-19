@@ -4,8 +4,8 @@ import { Complaint, ComplaintStatusType } from "@core/models";
 
 interface ComplaintStatus {
     status: ComplaintStatusType;
-    backgroundColor?: string;
-    color?: string;
+    backgroundColor: string;
+    color: string;
 }
 
 @Component({
@@ -25,15 +25,25 @@ export class ComplaintsComponent implements OnInit {
         this.complaintStatus = [
             {
                 status: 'PENDENTE',
-                backgroundColor: '#fef3c7',
-                color: '#92400e'
+                backgroundColor: 'hsla(38, 92%, 50%, 0.15)',
+                color: '#b45309'
             },
             {
                 status: 'EM ANDAMENTO',
-                backgroundColor: '#2d8fd18c',
-                color: '#206999'
+                backgroundColor: 'hsla(204, 65%, 50%, 0.15)',
+                color: '#1e6fa5'
+            },
+            {
+                status: 'CONCLUÍDA',
+                backgroundColor: 'hsla(142, 71%, 45%, 0.15)',
+                color: '#15803d'
             },
         ]
+    }
+
+    getStatusStyle(status: ComplaintStatusType): { backgroundColor: string; color: string } {
+        return this.complaintStatus.find(item => item.status === status)
+            ?? { status, backgroundColor: 'transparent', color: 'inherit' };
     }
 
     isExpanded(id: string): boolean {

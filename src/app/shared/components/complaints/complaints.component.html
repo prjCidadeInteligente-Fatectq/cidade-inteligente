@@ -1,4 +1,6 @@
 @for (complaint of filteredComplaints; track complaint.id) {
+    @let statusStyle = getStatusStyle(complaint.complaintStatus);
+
     <article class="card">
         <button (click)="toggleExpand(complaint.id)" class="complaint" [class.expanded]="isExpanded(complaint.id)">
             <header class="header">
@@ -29,7 +31,7 @@
                 }   
         
                 <div class="additional-info">
-                    <span class="status">{{ complaint.complaintStatus }}</span>
+                    <span class="status" [style.background-color]="statusStyle.backgroundColor" [style.color]="statusStyle.color">{{ complaint.complaintStatus }}</span>
         
                     @if (!isExpanded(complaint.id)) {
                         <i class="fa-solid fa-chevron-down" style="color: #181818;"></i>
