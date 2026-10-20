@@ -44,6 +44,16 @@ export class ComplaintsComponent implements OnInit {
         ]
     }
 
+    formatRegisterDate(registerDate: string): string {
+        if (!registerDate) {
+            return '';
+        }
+
+        const [year, month, day] = registerDate.slice(0, 10).split('-');
+
+        return `${day}/${month}/${year}`;
+    }
+
     getStatusStyle(status: ComplaintStatusType): { backgroundColor: string; color: string } {
         return this.complaintStatus.find(item => item.status === status)
             ?? { status, backgroundColor: 'transparent', color: 'inherit' };
@@ -76,7 +86,18 @@ export class ComplaintsComponent implements OnInit {
         
     }
 
+    SaveComplaint(updated: Complaint) {
+        const target = this.filteredComplaints?.find(item => item.id === updated.id);
+
+        if (target) {
+            Object.assign(target, updated);
+        }
+
+        this.CloseModal();
+    }
+
     CloseModal() {
         this.selectedComplaintId = null;
+        this.complaint = null;
     }
 }

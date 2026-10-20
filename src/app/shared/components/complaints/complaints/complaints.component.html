@@ -13,7 +13,7 @@
                         </small>
                         <small class="small">
                             <i class="fa-regular fa-calendar-days"></i>
-                            Denúncia realizada em: {{ complaint.registerDate | date: 'dd/MM/yyyy' }}
+                            Denúncia realizada em: {{ formatRegisterDate(complaint.registerDate) }}
                         </small>
                     </div>
 
@@ -49,7 +49,7 @@
 }
 
 @if (selectedComplaintId) {
-    <app-edit-complaint-modal (HideForm)="CloseModal()"
+    <app-edit-complaint-modal (HideForm)="CloseModal()" (SaveComplaint)="SaveComplaint($event)"
     [complaintId]="selectedComplaintId" [complaint]="complaint"></app-edit-complaint-modal>
 }
 

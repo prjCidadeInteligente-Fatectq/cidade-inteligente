@@ -1,6 +1,7 @@
 import { NeighbohoodComponent } from './components/neighborhoods/neighborhoods.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ComplaintCounterComponent } from './components/complaints/complaint-counter/complaint-counter.component';
 import { PriorityCardsComponent } from './components/priority-cards/priority-cards.component';
 import { ComplaintsComponent } from './components/complaints/complaints/complaints.component';
@@ -14,7 +15,7 @@ import { EditComplaintModalComponent } from './components/complaints/edit-compla
 @NgModule({
   declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OptionsButtonComponent, EditComplaintModalComponent,
                   NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent, NeedAttentionComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OptionsButtonComponent, EditComplaintModalComponent,
             NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent, NeedAttentionComponent],
 })

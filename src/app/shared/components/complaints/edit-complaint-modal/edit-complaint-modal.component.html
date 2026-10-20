@@ -1,12 +1,112 @@
 <div class="modal-overlay" (click)="HideModal()">
-      <div class="modal-container" (click)="$event.stopPropagation()">
-        <div class="modal-header">
-          <h3>Editar denúncia - {{ complaint?.street }}, {{ complaint?.neighborhood?.name }}</h3>
-          <button class="btn-fechar" (click)="HideModal()">&times;</button>
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Editar denúncia</h3>
+      <button class="btn-fechar" (click)="HideModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <form class="complaint-form" #editForm="ngForm" (ngSubmit)="Save()">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="complaint-id">ID</label>
+            <input id="complaint-id" type="text" name="id" [ngModel]="form.id" readonly>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-problem">Problema</label>
+            <input id="complaint-problem" type="text" name="problem" [(ngModel)]="form.problem" required>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-register-date">Data da denúncia</label>
+            <input id="complaint-register-date" type="date" name="registerDate" [(ngModel)]="form.registerDate" required>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-street">Rua</label>
+            <input id="complaint-street" type="text" name="street" [(ngModel)]="form.street" required>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-latitude">Latitude</label>
+            <input id="complaint-latitude" type="number" step="any" name="latitude" [(ngModel)]="form.latitude" required>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-longitude">Longitude</label>
+            <input id="complaint-longitude" type="number" step="any" name="longitude" [(ngModel)]="form.longitude" required>
+          </div>
+
+          <div class="form-field full">
+            <label for="complaint-description">Descrição</label>
+            <textarea id="complaint-description" name="description" rows="3" [(ngModel)]="form.description"></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label for="complaint-images">Imagens (separadas por vírgula)</label>
+            <textarea id="complaint-images" name="images" rows="2" [(ngModel)]="imagesInput"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label>Status</label>
+            <div class="status-dropdown">
+              <button type="button" class="status-trigger"
+                      [style.background-color]="selectedStatus.backgroundColor"
+                      [style.color]="selectedStatus.color"
+                      (click)="toggleStatusMenu()">
+                {{ form.complaintStatus }}
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              @if (isStatusOpen) {
+                <div class="status-options">
+                  @for (option of statusOptions; track option.status) {
+                    <button type="button" class="status-option"
+                            [style.--option-bg]="option.backgroundColor"
+                            [style.--option-color]="option.color"
+                            (click)="selectStatus(option.status)">
+                      {{ option.status }}
+                    </button>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-neighborhood-id">ID do bairro</label>
+            <input id="complaint-neighborhood-id" type="text" name="neighborhoodId" [ngModel]="form.neighborhood.id" readonly>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-neighborhood-name">Bairro</label>
+            <input id="complaint-neighborhood-name" type="text" name="neighborhoodName" [(ngModel)]="form.neighborhood.name" required>
+          </div>
+
+          <div class="form-field">
+            <label>Prioridade do bairro</label>
+            <span class="priority-badge"
+                  [style.background-color]="priorityStyle.backgroundColor"
+                  [style.color]="priorityStyle.color">{{ form.neighborhood.priority }}</span>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-user-id">ID do denunciante</label>
+            <input id="complaint-user-id" type="text" name="userId" [ngModel]="form.user.id" readonly>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-user-phone">Telefone do denunciante</label>
+            <input id="complaint-user-phone" type="text" name="userPhone" [(ngModel)]="form.user.phone" required>
+          </div>
         </div>
 
-        <div class="modal-body">
-            
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" (click)="HideModal()">Cancelar</button>
+          <button type="submit" class="btn-primary" [disabled]="editForm.invalid">Salvar alterações</button>
         </div>
-      </div>
+      </form>
     </div>
+  </div>
+</div>
