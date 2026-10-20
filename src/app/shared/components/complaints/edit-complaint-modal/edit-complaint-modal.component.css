@@ -201,13 +201,15 @@
 }
 
 .btn-primary {
-    border: none;
-    background-color: var(--color-primary);
-    color: #ffffff;
+    border: 1px solid transparent;
+    background-color: rgba(45, 143, 209, 0.15);
+    color: #1e6fa5;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .btn-primary:hover:not(:disabled) {
-    background-color: var(--color-primary-dark);
+    background-color: #2d8fd1;
+    color: #ffffff;
 }
 
 .btn-primary:disabled {
