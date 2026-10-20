@@ -73,6 +73,13 @@
     height: 500px;
 }
 
+.section-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .container {
     overflow-y: auto;
 }

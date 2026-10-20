@@ -68,6 +68,7 @@
     min-height: 0;
     overflow-y: auto;
     background: var(--color-surface-muted);
+    border-radius: 0 0 var(--radius) var(--radius);
 }
 
 @media (max-width: 900px) {

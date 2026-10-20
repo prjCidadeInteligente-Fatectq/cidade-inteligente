@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, input, Input, Output } from "@angular/core";
 
 @Component({
     selector: 'app-order-button',
@@ -11,15 +11,23 @@ import { Component, EventEmitter, HostListener, Input, Output } from "@angular/c
             </button>
         
             <div class="dropdown-content" [class.show]="isMenuOpen">
-                    <button class="dropdown-item" (click)="SelectOption('A &rarr; Z')">A &rarr; Z</button>
-                    <button class="dropdown-item" (click)="SelectOption('Z &rarr; A')">Z &rarr; A</button>
-                    <button class="dropdown-item" (click)="SelectOption('Mais denúncias')">Mais denúncias</button>
-                    <button class="dropdown-item" (click)="SelectOption('Menos denúncias')">Menos denúncias</button>
+                @if (optionOne && optionTwo) {
+                    <button class="dropdown-item" (click)="SelectOption(optionOne + 'A &rarr; Z')">{{ optionOne }}</button>
+                    <button class="dropdown-item" (click)="SelectOption(optionTwo + 'Z &rarr; A')">{{ optionTwo }}</button>
+                }
+                    
+                <button class="dropdown-item" (click)="SelectOption(optionThree)">{{ optionThree }}</button>
+                <button class="dropdown-item" (click)="SelectOption(optionFour)">{{ optionFour }}</button>
             </div>
         </div>
     `
 })
 export class OrderButtonComponent {
+    @Input() optionOne: string = '';
+    @Input() optionTwo: string = '';
+    @Input() optionThree: string = '';
+    @Input() optionFour: string = '';
+
     @Input() isMenuOpen: boolean = false;
     @Output() MenuChanges = new EventEmitter<boolean>();
     @Output() SelectedOption = new EventEmitter<string>();

@@ -14,9 +14,7 @@ interface NeighborhoodSummary {
         @for (item of uniqueNeighborhoods; track item.name;) {
             <button class="neighborhood" (click)="sendNeighborhood(item.name)">
                 <span>
-                    {{ item.name }}
-                    -
-                    {{ item.count }} Denúncias
+                    {{ item.name }} - {{ item.count }} Denúncias
                 </span>
 
                 <span class="open"><i class="fa-solid fa-chevron-up fa-rotate-90" style="color: #242425;"></i></span>

@@ -7,7 +7,12 @@
 
     <main class="content">
         <section class="need-attention">
-            <h1 class="section-title">Atenção necessária - Denúncias realizadas há mais de uma semana</h1>
+            <article class="section-header">
+                <h1 class="section-title">Atenção necessária - Denúncias realizadas há mais de uma semana</h1>
+                <app-order-button optionThree="Mais antiga" optionFour="Menos antiga"
+                (SelectedOption)="OrderComplaints()"></app-order-button>
+            </article>
+
             <article class="container">
                 <app-need-attention [filteredComplaints]="complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-need-attention>
             </article>

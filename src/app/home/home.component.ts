@@ -9,4 +9,8 @@ import { complaints } from '@shared/data/complaints'
 })
 export class HomeComponent {
   complaints = complaints;
+
+  OrderComplaints() {
+    
+  }
 }
