@@ -24,31 +24,6 @@
           </div>
 
           <div class="form-field">
-            <label for="complaint-street">Rua</label>
-            <input id="complaint-street" type="text" name="street" [(ngModel)]="form.street" required>
-          </div>
-
-          <div class="form-field">
-            <label for="complaint-latitude">Latitude</label>
-            <input id="complaint-latitude" type="number" step="any" name="latitude" [(ngModel)]="form.latitude" required>
-          </div>
-
-          <div class="form-field">
-            <label for="complaint-longitude">Longitude</label>
-            <input id="complaint-longitude" type="number" step="any" name="longitude" [(ngModel)]="form.longitude" required>
-          </div>
-
-          <div class="form-field full">
-            <label for="complaint-description">Descrição</label>
-            <textarea id="complaint-description" name="description" rows="3" [(ngModel)]="form.description"></textarea>
-          </div>
-
-          <div class="form-field full">
-            <label for="complaint-images">Imagens (separadas por vírgula)</label>
-            <textarea id="complaint-images" name="images" rows="2" [(ngModel)]="imagesInput"></textarea>
-          </div>
-
-          <div class="form-field">
             <label>Status</label>
             <div class="status-dropdown">
               <button type="button" class="status-trigger"
@@ -75,6 +50,26 @@
           </div>
 
           <div class="form-field">
+            <label for="complaint-latitude">Latitude</label>
+            <input id="complaint-latitude" type="number" step="any" name="latitude" [(ngModel)]="form.latitude" required>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-longitude">Longitude</label>
+            <input id="complaint-longitude" type="number" step="any" name="longitude" [(ngModel)]="form.longitude" required>
+          </div>
+
+          <div class="form-field full">
+            <label for="complaint-description">Descrição</label>
+            <textarea id="complaint-description" name="description" rows="3" [(ngModel)]="form.description"></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label for="complaint-images">Imagens (separadas por vírgula)</label>
+            <textarea id="complaint-images" name="images" rows="2" [(ngModel)]="imagesInput"></textarea>
+          </div>
+
+          <div class="form-field">
             <label for="complaint-neighborhood-id">ID do bairro</label>
             <input id="complaint-neighborhood-id" type="text" name="neighborhoodId" [ngModel]="form.neighborhood.id" readonly>
           </div>
@@ -82,6 +77,11 @@
           <div class="form-field">
             <label for="complaint-neighborhood-name">Bairro</label>
             <input id="complaint-neighborhood-name" type="text" name="neighborhoodName" [(ngModel)]="form.neighborhood.name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="complaint-street">Rua</label>
+            <input id="complaint-street" type="text" name="street" [(ngModel)]="form.street" required>
           </div>
 
           <div class="form-field">

@@ -32,18 +32,18 @@ export class PriorityCardsComponent implements OnInit {
         this.priorities = [
         {
             name: 'ALTA',
-            color: '#f83838',
+            color: '#d23131',
             quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'ALTA').length
         },
         {
             name: 'MÉDIA',
-            color: '#ffff24',
+            color: '#edda09',
 
             quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'MÉDIA').length
         },
         {
             name: 'BAIXA',
-            color: '#45cc47',
+            color: '#3aad3c',
             quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'BAIXA').length
         }
     ];
