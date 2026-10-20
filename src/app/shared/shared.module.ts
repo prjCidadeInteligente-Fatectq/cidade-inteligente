@@ -6,15 +6,15 @@ import { PriorityCardsComponent } from './components/priority-cards/priority-car
 import { ComplaintsComponent } from './components/complaints/complaints/complaints.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ComplaintsModalComponent } from './components/complaints/complaints-modal/complaints-modal.component';
-import { OrderButtonComponent } from './components/order-button/order-button.component';
+import { OptionsButtonComponent } from './components/options-button/options-button.component';
 import { MonthComponent } from './components/month/month.component';
 import { NeedAttentionComponent } from './components/need-attention/need-attention.component';
 
 @NgModule({
-  declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OrderButtonComponent,
+  declarations: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OptionsButtonComponent,
                   NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent, NeedAttentionComponent],
   imports: [CommonModule],
-  exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OrderButtonComponent,
+  exports: [NavbarComponent, ComplaintCounterComponent, PriorityCardsComponent, OptionsButtonComponent,
             NeighbohoodComponent, ComplaintsComponent, ComplaintsModalComponent, MonthComponent, NeedAttentionComponent],
 })
 export class SharedModule {}
