@@ -1,3 +1,4 @@
+import { Neighbohood } from './../../../../core/models/neighborhood.model';
 import { Component, Input, OnInit } from "@angular/core";
 import { Complaint, ComplaintStatusType } from "@core/models";
 
@@ -17,8 +18,10 @@ interface ComplaintStatus {
 export class ComplaintsComponent implements OnInit {
     @Input() filteredComplaints?: Complaint[] = [];
 
+    complaint: Complaint | null = null;
+    isOptionsOpenId: string | null = null;
+    selectedComplaintId: string | null = null;
     expandedCardIds = new Set<string>();
-
     complaintStatus: ComplaintStatus[] = [];
 
     ngOnInit(): void {
@@ -57,5 +60,23 @@ export class ComplaintsComponent implements OnInit {
             this.expandedCardIds.add(id);
         }
         this.expandedCardIds = new Set(this.expandedCardIds);
+    }
+
+    toggleShowOptions(id: string) {
+        if (this.isOptionsOpenId === null){
+            this.isOptionsOpenId = id;
+        } else {
+            this.isOptionsOpenId = null;
+        }
+    }
+
+    ShowModal(id: string, complaint: Complaint) {
+        this.selectedComplaintId = id;
+        this.complaint = complaint;
+        
+    }
+
+    CloseModal() {
+        this.selectedComplaintId = null;
     }
 }

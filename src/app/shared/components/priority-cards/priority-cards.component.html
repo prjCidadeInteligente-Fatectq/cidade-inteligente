@@ -4,14 +4,14 @@
             <header class="header" [style.background-color]="priority.color">
                 <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }}</span>
                 
-                <app-order-button 
+                <app-options
                     (SelectedOption)="OrderComplaints()"
                     (MenuChanges)="toggleMenu(priority.name, $event)"
                     [isMenuOpen]="activeMenuPriority === priority.name"
                     optionOne="A &rarr; Z" optionTwo=" Z &rarr; A"
                     optionThree="Mais denúncias" optionFour="Menos denúncias"
                     >
-                </app-order-button>
+                </app-options>
             </header>
         
             <div class="neighborhoods">

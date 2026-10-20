@@ -40,12 +40,14 @@ export class OptionsButtonComponent {
     }
 
     SelectOption(option: string) {
-        if (this.buttonText === 'ORDENAR'){
+        this.isMenuOpen = false;
+        this.MenuChanges.emit(false);
+
+        if (this.buttonText === 'ORDENAR') {
             this.buttonText = `ORDENAR: ${option}`;
-            this.isMenuOpen = false;
-    
-            this.SelectedOption.emit(option);
         }
+
+        this.SelectedOption.emit(option);
     }
 
     @HostListener('document:click', ['$event'])

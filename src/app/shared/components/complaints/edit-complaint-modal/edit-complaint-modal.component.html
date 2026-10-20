@@ -1,0 +1,12 @@
+<div class="modal-overlay" (click)="HideModal()">
+      <div class="modal-container" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h3>Editar denúncia - {{ complaint?.street }}, {{ complaint?.neighborhood?.name }}</h3>
+          <button class="btn-fechar" (click)="HideModal()">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            
+        </div>
+      </div>
+    </div>

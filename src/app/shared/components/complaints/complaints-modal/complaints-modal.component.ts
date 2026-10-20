@@ -9,16 +9,14 @@ import { Complaint } from "@core/models";
     template: `
     <div class="modal-overlay" (click)="HideModal()">
       <div class="modal-container" (click)="$event.stopPropagation()">
-        
         <div class="modal-header">
           <h3>Denúncias - 
-            @if (neighborhoodName) {
-              {{ neighborhoodName }}
-            } @else if (date) {
-              {{ date | date: 'dd/MM/yyyy' }}
-            }
-
-          </h3>
+              @if (neighborhoodName) {
+                {{ neighborhoodName }}
+              } @else if (date) {
+                {{ date | date: 'dd/MM/yyyy' }}
+              }
+            </h3>
           <button class="btn-fechar" (click)="HideModal()">&times;</button>
         </div>
 
@@ -44,7 +42,7 @@ export class ComplaintsModalComponent {
     @Input() neighborhoodName?: string = '';
     @Input() date?: Date | null = null;
     @Input() filteredComplaints?: Complaint[] = [];
-    @Output() HideComplaints = new EventEmitter<string>
+    @Output() HideComplaints = new EventEmitter<string>();
 
     notConcludedComplaints?: Complaint[] = this.filteredComplaints?.filter(c => c.complaintStatus === 'CONCLUÍDA');
 

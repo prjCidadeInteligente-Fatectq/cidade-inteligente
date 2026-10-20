@@ -38,8 +38,18 @@
                     } @else {
                         <i class="fa-solid fa-chevron-up" style="color: #181818;"></i>
                     }
+
+                    <app-options buttonText="&vellip;" (SelectedOption)="ShowModal(complaint.id, complaint)"
+                     (click)="$event.stopPropagation()"
+                     optionThree="Editar" optionFour="Deletar"></app-options>
                 </div>
             </header>
         </button>
     </article>
 }
+
+@if (selectedComplaintId) {
+    <app-edit-complaint-modal (HideForm)="CloseModal()"
+    [complaintId]="selectedComplaintId" [complaint]="complaint"></app-edit-complaint-modal>
+}
+
