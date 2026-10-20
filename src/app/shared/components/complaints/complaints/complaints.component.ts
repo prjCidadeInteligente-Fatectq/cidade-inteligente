@@ -1,6 +1,6 @@
-import { Neighbohood } from './../../../../core/models/neighborhood.model';
 import { Component, Input, OnInit } from "@angular/core";
 import { Complaint, ComplaintStatusType } from "@core/models";
+import { complaints as allComplaints } from '@shared/data/complaints';
 
 
 interface ComplaintStatus {
@@ -19,6 +19,7 @@ export class ComplaintsComponent implements OnInit {
     @Input() filteredComplaints?: Complaint[] = [];
 
     complaint: Complaint | null = null;
+    complaintToDelete: Complaint | null = null;
     isOptionsOpenId: string | null = null;
     selectedComplaintId: string | null = null;
     expandedCardIds = new Set<string>();
@@ -80,10 +81,31 @@ export class ComplaintsComponent implements OnInit {
         }
     }
 
+    handleOption(option: string, complaint: Complaint) {
+        if (option === 'Editar') {
+            this.ShowModal(complaint.id, complaint);
+        } else if (option === 'Excluir') {
+            this.complaintToDelete = complaint;
+        }
+    }
+
     ShowModal(id: string, complaint: Complaint) {
         this.selectedComplaintId = id;
         this.complaint = complaint;
-        
+    }
+
+    DeleteComplaint(complaint: Complaint) {
+        const index = allComplaints.findIndex(item => item.id === complaint.id);
+
+        if (index !== -1) {
+            allComplaints.splice(index, 1);
+        }
+
+        this.CloseDeleteModal();
+    }
+
+    CloseDeleteModal() {
+        this.complaintToDelete = null;
     }
 
     SaveComplaint(updated: Complaint) {
