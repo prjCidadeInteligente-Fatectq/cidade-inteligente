@@ -26,6 +26,10 @@ export class GetComplaintsService {
     }
 
     getComplaintsByNeighborhood(neighborhood: string): Observable<Complaint[]> {
-        return this._httpClient.get<Complaint[]>(`${this._apiUrl}/GetAllComplaintsByNeighborhood/${neighborhood}`)
+        return this._httpClient.get<Complaint[]>(`${this._apiUrl}/GetAllComplaintsByNeighborhood/${neighborhood}`);
+    }
+
+    getComplaintsWithOldTimeRange(): Observable<Complaint[]> {
+        return this._httpClient.get<Complaint[]>(`${this._apiUrl}/GetAllComplaintsWithOldestTimeRange`)
     }
 }

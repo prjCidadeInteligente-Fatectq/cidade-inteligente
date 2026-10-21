@@ -18,9 +18,7 @@ interface ChartItem {
 export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private _getComplaints = inject(GetComplaintsService);
-
-  @Input() complaints: Complaint[] = [];
-
+  
   @ViewChild('pizzaChart')
   pizzaChart!: ElementRef<HTMLCanvasElement>;
 

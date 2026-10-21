@@ -6,16 +6,9 @@ import { Complaint } from "@core/models";
     standalone: false,
     styleUrl: './need-attention.component.css',
     template: `
-        <app-complaints [filteredComplaints]="olderThanOneWeek"></app-complaints>
+        <app-complaints [filteredComplaints]="complaintsWithOldTimeRange"></app-complaints>
     `
 })
 export class NeedAttentionComponent {
-    @Input() filteredComplaints: Complaint[] = [];
-
-    get olderThanOneWeek(): Complaint[] {
-        const oneWeekAgo = new Date();
-        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-
-        return this.filteredComplaints.filter(complaint => new Date(complaint.registerDate) < oneWeekAgo);
-    }
+    @Input() complaintsWithOldTimeRange: Complaint[] = [];
 }

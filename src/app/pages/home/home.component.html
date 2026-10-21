@@ -1,7 +1,7 @@
 <div class="page">
     <header class="header">
         <h1 class="section-title">Visão geral</h1>
-        <app-complaint-counter [complaints]="complaints"></app-complaint-counter>
+        <app-complaint-counter></app-complaint-counter>
         <app-priority-cards></app-priority-cards>
     </header>
 
@@ -14,13 +14,13 @@
             </article>
 
             <article class="container">
-                <app-need-attention [filteredComplaints]="complaints.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-need-attention>
+                <app-need-attention [complaintsWithOldTimeRange]="complaintsWithOldTimeRange"></app-need-attention>
             </article>
         </section>
 
         <section class="panel">
             <h1 class="section-title">Esse mês</h1>
-            <app-month [complaints]="complaints"></app-month>
+            <app-month [complaints]="complaintsWithOldTimeRange"></app-month>
         </section>
     </main>
 
