@@ -84,6 +84,30 @@
     overflow-y: auto;
 }
 
+.complaints-skeleton,
+.calendar-skeleton {
+    display: grid;
+    gap: 12px;
+}
+
+.complaints-skeleton span,
+.calendar-skeleton span {
+    display: block;
+    min-height: 62px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #e8edf3 25%, #f5f7fa 50%, #e8edf3 75%);
+    background-size: 200% 100%;
+    animation: page-skeleton-loading 1.2s infinite;
+}
+
+.calendar-skeleton {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@keyframes page-skeleton-loading {
+    to { background-position: -200% 0; }
+}
+
 .footer {
     display: flex;
     align-items: center;

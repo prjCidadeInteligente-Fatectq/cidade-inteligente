@@ -38,21 +38,6 @@
     font-weight: 700;
 }
 
-.btn-fechar {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--color-text-muted);
-    line-height: 1;
-    padding: 4px 8px;
-    transition: color var(--transition);
-}
-
-.btn-fechar:hover {
-    color: var(--color-text);
-}
-
 .modal-body {
     flex: 1;
     padding: 24px;
@@ -63,6 +48,25 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.edit-form-skeleton {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.edit-form-skeleton span {
+    display: block;
+    min-height: 62px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #e8edf3 25%, #f5f7fa 50%, #e8edf3 75%);
+    background-size: 200% 100%;
+    animation: edit-skeleton-loading 1.2s infinite;
+}
+
+@keyframes edit-skeleton-loading {
+    to { background-position: -200% 0; }
 }
 
 .form-grid {
@@ -217,6 +221,22 @@
     cursor: not-allowed;
 }
 
+.button-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    vertical-align: -2px;
+    animation: button-spin 0.65s linear infinite;
+}
+
+@keyframes button-spin {
+    to { transform: rotate(360deg); }
+}
+
 .btn-secondary {
     border: 1px solid var(--color-border);
     background-color: var(--color-surface);
@@ -225,6 +245,53 @@
 
 .btn-secondary:hover {
     background-color: var(--color-surface-muted);
+}
+
+.btn-danger {
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: 10px 18px;
+    background: rgba(239, 68, 68, 0.12);
+    color: #b91c1c;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.confirmation-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(15, 23, 42, 0.62);
+}
+
+.confirmation-dialog {
+    width: min(440px, 100%);
+    padding: 24px;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-lg);
+}
+
+.confirmation-dialog h3,
+.confirmation-dialog p {
+    margin-top: 0;
+}
+
+.confirmation-dialog p {
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.confirmation-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
 }
 
 @keyframes fadeIn {

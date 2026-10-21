@@ -14,13 +14,25 @@
             </article>
 
             <article class="container">
-                <app-need-attention [complaintsWithOldTimeRange]="complaintsWithOldTimeRange"></app-need-attention>
+                @if (isLoadingComplaints) {
+                    <div class="complaints-skeleton" aria-label="Carregando denúncias">
+                        @for (item of [1, 2, 3]; track item) { <span></span> }
+                    </div>
+                } @else {
+                    <app-need-attention [complaintsWithOldTimeRange]="complaintsWithOldTimeRange"></app-need-attention>
+                }
             </article>
         </section>
 
         <section class="panel">
             <h1 class="section-title">Esse mês</h1>
-            <app-month [complaints]="complaintsWithOldTimeRange"></app-month>
+            @if (isLoadingComplaints) {
+                <div class="calendar-skeleton" aria-label="Carregando calendário">
+                    @for (item of [1, 2, 3, 4, 5, 6]; track item) { <span></span> }
+                </div>
+            } @else {
+                <app-month [complaints]="complaintsWithOldTimeRange"></app-month>
+            }
         </section>
     </main>
 

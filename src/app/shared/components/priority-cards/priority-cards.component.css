@@ -19,6 +19,30 @@
     z-index: 1;
 }
 
+.priority-skeleton {
+    padding: 18px;
+    gap: 16px;
+}
+
+.priority-skeleton div,
+.priority-skeleton span {
+    display: block;
+    height: 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #e8edf3 25%, #f5f7fa 50%, #e8edf3 75%);
+    background-size: 200% 100%;
+    animation: priority-skeleton-loading 1.2s infinite;
+}
+
+.priority-skeleton div { height: 46px; margin: -18px -18px 4px; border-radius: var(--radius) var(--radius) 0 0; }
+.priority-skeleton span:nth-of-type(1) { width: 85%; }
+.priority-skeleton span:nth-of-type(2) { width: 67%; }
+.priority-skeleton span:nth-of-type(3) { width: 74%; }
+
+@keyframes priority-skeleton-loading {
+    to { background-position: -200% 0; }
+}
+
 .card:hover {
     z-index: 2;
     transform: translateY(-4px);

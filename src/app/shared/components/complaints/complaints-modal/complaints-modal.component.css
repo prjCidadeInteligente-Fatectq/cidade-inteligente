@@ -69,6 +69,24 @@
   gap: 12px;
 }
 
+.complaints-modal-skeleton {
+  display: grid;
+  gap: 14px;
+}
+
+.complaints-modal-skeleton span {
+  display: block;
+  height: 78px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e8edf3 25%, #f5f7fa 50%, #e8edf3 75%);
+  background-size: 200% 100%;
+  animation: modal-skeleton-loading 1.2s infinite;
+}
+
+@keyframes modal-skeleton-loading {
+  to { background-position: -200% 0; }
+}
+
 /* Animações suaves de abertura */
 @keyframes fadeIn {
   from { opacity: 0; }

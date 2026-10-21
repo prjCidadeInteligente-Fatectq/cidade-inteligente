@@ -26,16 +26,26 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
   chartItems: ChartItem[] = [];
 
   totalComplaints: number = 0;
+  isLoading = true;
   
   complaintStatusQuant: ComplaintStatusQuant | null = null;
 
   ngOnInit(): void {
+    this.loadCounters();
+
+    this._getComplaints.complaintsUpdated$.subscribe(() => this.loadCounters());
+  }
+
+  private loadCounters(): void {
+    this.isLoading = true;
+    this.chart?.destroy();
     this._getComplaints.getTotalComplaints().subscribe({
       next: (data) => {
         this.complaintStatusQuant = data;
         
         this.chartItems = [
-          { label: 'Pendentes',
+          { 
+            label: 'Pendentes',
             value: this.complaintStatusQuant?.totalPending,
             color: '#F59E0B' 
           },
@@ -55,11 +65,13 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
         this.complaintStatusQuant?.totalProgress + 
         this.complaintStatusQuant?.totalComplet;
 
-        this._changeDetectorRef.markForCheck();
-
-        this.CreateChart();
+        this.isLoading = false;
+        this._changeDetectorRef.detectChanges();
+        setTimeout(() => this.CreateChart());
       },
       error: (error) => {
+        this.isLoading = false;
+        this._changeDetectorRef.markForCheck();
         console.error(error)
       }
     });

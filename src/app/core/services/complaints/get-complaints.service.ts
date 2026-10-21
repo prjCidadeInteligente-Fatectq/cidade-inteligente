@@ -3,12 +3,21 @@ import { Neighborhood } from '@core/models';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Complaint } from "@core/models";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 export interface ComplaintStatusQuant {
   totalPending: number;
   totalProgress: number;
   totalComplet: number;
+}
+
+export interface UpdateComplaintRequest {
+    id: string;
+    problem: string;
+    street: string;
+    description: string;
+    status: string;
+    neighborhood: string;
 }
 
 export interface NeighborhoodsWithTotalComplaints {
@@ -21,6 +30,9 @@ export interface NeighborhoodsWithTotalComplaints {
 export class GetComplaintsService {
     private _httpClient = inject(HttpClient);
     private _apiUrl = 'http://localhost:5129/api/complaints';
+    private _complaintsUpdated = new Subject<void>();
+
+    readonly complaintsUpdated$ = this._complaintsUpdated.asObservable();
 
     getTotalComplaints(): Observable<ComplaintStatusQuant> {
         return this._httpClient.get<ComplaintStatusQuant>(`${this._apiUrl}/GetTotalComplaints`)
@@ -40,5 +52,13 @@ export class GetComplaintsService {
 
     getComplaintById(id: string): Observable<Complaint> {
         return this._httpClient.get<Complaint>(`${this._apiUrl}/GetComplaintsById/${id}`);
+    }
+
+    updateComplaint(complaint: UpdateComplaintRequest): Observable<void> {
+        return this._httpClient.put<void>(`${this._apiUrl}/EditComplaint`, complaint);
+    }
+
+    notifyComplaintsUpdated(): void {
+        this._complaintsUpdated.next();
     }
 }

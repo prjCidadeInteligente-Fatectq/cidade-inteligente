@@ -10,6 +10,38 @@
     margin: 0;
 }
 
+.counter-skeletons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.skeleton-card {
+    flex: 1 1 180px;
+    min-width: 170px;
+    min-height: 112px;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+}
+
+.skeleton-card span,
+.skeleton-card strong {
+    display: block;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #e8edf3 25%, #f5f7fa 50%, #e8edf3 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.2s infinite;
+}
+
+.skeleton-card span { width: 65%; height: 13px; }
+.skeleton-card strong { width: 38%; height: 30px; margin-top: 16px; }
+
+@keyframes skeleton-loading {
+    to { background-position: -200% 0; }
+}
+
 .counter {
     flex: 1 1 180px;
     min-width: 170px;

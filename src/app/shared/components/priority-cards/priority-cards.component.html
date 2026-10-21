@@ -1,3 +1,10 @@
+@if (isLoading) {
+  <section class="cards" aria-label="Carregando prioridades">
+    @for (item of [1, 2, 3]; track item) {
+      <article class="card priority-skeleton"><div></div><span></span><span></span><span></span></article>
+    }
+  </section>
+} @else {
 <section class="cards">
     @for (priority of priorities; track priority.name) {
         <article class="card" (mouseenter)="activeMenuPriority = null">
@@ -23,11 +30,13 @@
         </article>
     }
 </section>
+}
 
 @if (isModalOpen) {
     <app-complaints-modal 
         [neighborhoodName]="selectedNeighborhood"
         [filteredComplaints]="complaints"
+        [isLoading]="isLoadingComplaints"
         (HideComplaints)="CloseModal()">
     </app-complaints-modal>
 }

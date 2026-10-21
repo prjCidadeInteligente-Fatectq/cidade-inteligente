@@ -20,7 +20,11 @@ import { Complaint } from "@core/models";
         </div>
 
         <div class="modal-body">
-          @if (neighborhoodName) {
+          @if (isLoading) {
+            <div class="complaints-modal-skeleton" aria-label="Carregando denúncias">
+              @for (item of [1, 2, 3, 4]; track item) { <span></span> }
+            </div>
+          } @else if (neighborhoodName) {
             <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.neighborhood === neighborhoodName)">
             </app-complaints>
           } @else if (date) { 
@@ -37,12 +41,12 @@ import { Complaint } from "@core/models";
     </div>
     `
 })
-export class ComplaintsModalComponent implements OnInit{
+export class ComplaintsModalComponent implements OnInit {
     private _changeDetectorRef = inject(ChangeDetectorRef);
-    
     @Input() neighborhoodName?: string = '';
     @Input() date?: Date | null = null;
     @Input() filteredComplaints?: Complaint[] = [];
+    @Input() isLoading = false;
     @Output() HideComplaints = new EventEmitter<string>();
 
     notConcludedComplaints?: Complaint[] = this.filteredComplaints?.filter(c => c.status === 'CONCLUÍDA');

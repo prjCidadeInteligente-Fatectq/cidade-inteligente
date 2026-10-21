@@ -16,10 +16,14 @@ interface StatusOption {
 export class EditComplaintModalComponent implements OnChanges {
     @Input() complaint?: Complaint | null;
     @Input() complaintId: string | null = '';
-    @Output() HideForm = new EventEmitter<string>();
+    @Input() isLoading = false;
+    @Input() isSaving = false;
+    @Output() HideForm = new EventEmitter<void>();
     @Output() SaveComplaint = new EventEmitter<Complaint>();
 
     isStatusOpen = false;
+    isDiscardConfirmationOpen = false;
+    private initialForm: Complaint | null = null;
 
     statusOptions: StatusOption[] = [
         {
@@ -76,6 +80,7 @@ export class EditComplaintModalComponent implements OnChanges {
             ...complaint,
             register_date: complaint.register_date?.slice(0, 10) ?? ''
         };
+        this.initialForm = { ...this.form };
     }
 
     get selectedStatus(): StatusOption {
@@ -99,15 +104,58 @@ export class EditComplaintModalComponent implements OnChanges {
     }
 
     Save() {
-        if (!this.complaint) {
+        if (!this.complaint || this.isSaving) {
             return;
         }
 
-        this.SaveComplaint.emit(this.complaint);
+        this.SaveComplaint.emit({ ...this.form });
+    }
+
+    Cancel(): void {
+        if (this.isSaving) {
+            return;
+        }
+
+        if (this.hasChanges()) {
+            this.isDiscardConfirmationOpen = true;
+            return;
+        }
+
         this.HideModal();
     }
 
-    HideModal() {
+    KeepEditing(): void {
+        this.isDiscardConfirmationOpen = false;
+    }
+
+    SaveChanges(): void {
+        if (this.isSaving) {
+            return;
+        }
+
+        this.isDiscardConfirmationOpen = false;
+        this.Save();
+    }
+
+    DiscardChanges(): void {
+        if (this.isSaving) {
+            return;
+        }
+
+        this.isDiscardConfirmationOpen = false;
+        this.HideModal();
+    }
+
+    private hasChanges(): boolean {
+        if (!this.initialForm) {
+            return false;
+        }
+
+        return ['problem', 'street', 'description', 'status', 'neighborhood']
+            .some((field) => this.form[field as keyof Complaint] !== this.initialForm![field as keyof Complaint]);
+    }
+
+    private HideModal(): void {
         this.HideForm.emit();
     }
 }

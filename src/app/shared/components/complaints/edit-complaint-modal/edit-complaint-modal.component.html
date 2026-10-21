@@ -1,11 +1,15 @@
-<div class="modal-overlay" (click)="HideModal()">
-  <div class="modal-container" (click)="$event.stopPropagation()">
+<div class="modal-overlay">
+  <div class="modal-container">
     <div class="modal-header">
       <h3>Editar denúncia</h3>
-      <button class="btn-fechar" (click)="HideModal()">&times;</button>
     </div>
 
     <div class="modal-body">
+      @if (isLoading) {
+        <div class="edit-form-skeleton" aria-label="Carregando dados da denúncia">
+          @for (item of [1, 2, 3, 4, 5, 6]; track item) { <span></span> }
+        </div>
+      } @else {
       <form class="complaint-form" #editForm="ngForm" (ngSubmit)="Save()">
         <div class="form-grid">
           <div class="form-field">
@@ -78,10 +82,34 @@
         </div>
 
         <div class="form-actions">
-          <button type="button" class="btn-secondary" (click)="HideModal()">Cancelar</button>
-          <button type="submit" class="btn-primary" [disabled]="editForm.invalid">Salvar alterações</button>
+          <button type="button" class="btn-secondary" [disabled]="isSaving" (click)="Cancel()">Cancelar</button>
+          <button type="submit" class="btn-primary" [disabled]="editForm.invalid || isSaving">
+            @if (isSaving) {
+              <span class="button-spinner" aria-hidden="true"></span>
+              Salvando...
+            } @else {
+              Salvar alterações
+            }
+          </button>
         </div>
       </form>
+      }
     </div>
   </div>
 </div>
+
+@if (isDiscardConfirmationOpen) {
+  <div class="confirmation-overlay">
+    <section class="confirmation-dialog" role="dialog" aria-modal="true" aria-labelledby="discard-title">
+      <h3 id="discard-title">Salvar alterações?</h3>
+      <p>Você fez alterações nesta denúncia. Deseja salvá-las antes de fechar?</p>
+      <div class="confirmation-actions">
+        <button type="button" class="btn-secondary" [disabled]="isSaving" (click)="KeepEditing()">Continuar editando</button>
+        <button type="button" class="btn-danger" [disabled]="isSaving" (click)="DiscardChanges()">Não salvar</button>
+        <button type="button" class="btn-primary" [disabled]="isSaving" (click)="SaveChanges()">
+          @if (isSaving) { <span class="button-spinner" aria-hidden="true"></span> Salvando... } @else { Salvar mudanças }
+        </button>
+      </div>
+    </section>
+  </div>
+}

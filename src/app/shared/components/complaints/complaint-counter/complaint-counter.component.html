@@ -1,3 +1,10 @@
+@if (isLoading) {
+  <div class="counter-skeletons" aria-label="Carregando indicadores">
+    @for (item of [1, 2, 3, 4]; track item) {
+      <div class="skeleton-card"><span></span><strong></strong></div>
+    }
+  </div>
+} @else {
 <ul class="counters">
     @for (item of chartItems; track item.label) {
        <li class="counter">
@@ -25,3 +32,4 @@
       </div>
     </li>
 </ul>
+}

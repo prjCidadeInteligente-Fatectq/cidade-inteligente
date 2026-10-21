@@ -27,8 +27,17 @@ export class PriorityCardsComponent implements OnInit {
     selectedNeighborhood: string = ''
 
     priorities: Priority[] = []
+    isLoading = true;
+    isLoadingComplaints = false;
 
     ngOnInit(): void {
+        this.loadPriorities();
+
+        this._getComplaints.complaintsUpdated$.subscribe(() => this.loadPriorities());
+    }
+
+    private loadPriorities(): void {
+        this.isLoading = true;
         this._getComplaints.getNeighborhoodsWithTotal().subscribe({
             next: (data) => {
                 this.neighborhoods = data.complaintByNeighborhoodList;
@@ -51,9 +60,12 @@ export class PriorityCardsComponent implements OnInit {
                     }
                 ];
 
+                this.isLoading = false;
                 this._changeDetectorRef.markForCheck();
             },
             error: (error) => {
+                this.isLoading = false;
+                this._changeDetectorRef.markForCheck();
                 console.error(error);
             }
         });
@@ -62,14 +74,19 @@ export class PriorityCardsComponent implements OnInit {
     OpenModal(neighborhood: string) {
         this.selectedNeighborhood = neighborhood;
         this.isModalOpen = true;
+        this.isLoadingComplaints = true;
+        this.complaints = [];
+        this._changeDetectorRef.markForCheck();
 
         this._getComplaints.getComplaintsByNeighborhood(this.selectedNeighborhood).subscribe({
             next: (data) => {
                 this.complaints = data?.complaintsByNeighborhood;
-
+                this.isLoadingComplaints = false;
                 this._changeDetectorRef.markForCheck();
             },
             error: (error) => {
+                this.isLoadingComplaints = false;
+                this._changeDetectorRef.markForCheck();
                 console.error(error);
             }
         });
@@ -77,6 +94,7 @@ export class PriorityCardsComponent implements OnInit {
 
     CloseModal() {
         this.isModalOpen = false;
+        this.isLoadingComplaints = false;
     }
 
     toggleMenu(priorityName: string, isMenuOpen: boolean) {

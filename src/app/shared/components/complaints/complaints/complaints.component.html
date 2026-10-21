@@ -51,7 +51,7 @@
     </article>
 }
 
-@if (complaint) {
+@if (complaint || isLoadingEditComplaint) {
     <app-edit-complaint-modal (HideForm)="CloseModal()" (SaveComplaint)="SaveComplaint($event)"
-    [complaint]="complaint"></app-edit-complaint-modal>
+    [complaint]="complaint" [isSaving]="isSavingComplaint" [isLoading]="isLoadingEditComplaint"></app-edit-complaint-modal>
 }
