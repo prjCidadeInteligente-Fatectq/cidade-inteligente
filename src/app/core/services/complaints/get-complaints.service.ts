@@ -38,7 +38,7 @@ export class GetComplaintsService {
         return this._httpClient.get<ComplaintById>(`${this._apiUrl}/GetAllComplaintsWithOldestTimeRange`);
     }
 
-    getComplaintById(id: string): Observable<ComplaintById> {
-        return this._httpClient.get<ComplaintById>(`${this._apiUrl}/GetComplaintsById/${id}`);
+    getComplaintById(id: string): Observable<Complaint> {
+        return this._httpClient.get<Complaint>(`${this._apiUrl}/GetComplaintsById/${id}`);
     }
 }

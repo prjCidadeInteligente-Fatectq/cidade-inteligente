@@ -13,7 +13,7 @@ interface StatusOption {
     styleUrl: './edit-complaint-modal.component.css',
     templateUrl: './edit-complaint-modal.component.html'
 })
-export class EditComplaintModalComponent {
+export class EditComplaintModalComponent implements OnChanges {
     @Input() complaint?: Complaint | null;
     @Input() complaintId: string | null = '';
     @Output() HideForm = new EventEmitter<string>();
@@ -57,6 +57,7 @@ export class EditComplaintModalComponent {
     form: Complaint = {
         id: '',
         problem: '',
+        priority: '',
         status: '',
         street: '',
         neighborhood: '',
@@ -64,13 +65,29 @@ export class EditComplaintModalComponent {
         description: '',
     }
 
+    ngOnChanges(changes: SimpleChanges): void {
+        const complaint = changes['complaint']?.currentValue as Complaint | null | undefined;
+
+        if (!complaint) {
+            return;
+        }
+
+        this.form = {
+            ...complaint,
+            register_date: complaint.register_date?.slice(0, 10) ?? ''
+        };
+    }
+
     get selectedStatus(): StatusOption {
         return this.statusOptions.find(option => option.status === this.form.status) ?? this.statusOptions[0];
     }
 
-    // get priorityStyle(): { backgroundColor: string; color: string } {
-    //     return this.priorityStyles[this.form.priority];
-    // }
+    get priorityStyle(): { backgroundColor: string; color: string } {
+    return this.priorityStyles[this.form.priority] ?? {
+        backgroundColor: 'transparent',
+        color: 'inherit'
+    };
+}
 
     toggleStatusMenu() {
         this.isStatusOpen = !this.isStatusOpen;
@@ -86,12 +103,7 @@ export class EditComplaintModalComponent {
             return;
         }
 
-        const updated: Complaint = {
-            ...this.form,
-            register_date: `${this.form.register_date.slice(0, 10)}T00:00:00Z`
-        };
-
-        this.SaveComplaint.emit(updated);
+        this.SaveComplaint.emit(this.complaint);
         this.HideModal();
     }
 

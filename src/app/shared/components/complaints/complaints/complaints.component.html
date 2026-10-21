@@ -42,23 +42,16 @@
                         <i class="fa-solid fa-chevron-up" style="color: #181818;"></i>
                     }
 
-                    <app-options buttonText="&vellip;" (SelectedOption)="handleOption($event, complaint)"
+                    <app-options buttonText="&vellip;" (SelectedOption)="handleOption($event, complaint.id)"
                      (click)="$event.stopPropagation()"
-                     optionThree="Editar" optionFour="Excluir"></app-options>
+                     optionOne="Editar"></app-options>
                 </div>
             </header>
         </button>
     </article>
 }
 
-@if (selectedComplaintId) {
+@if (complaint) {
     <app-edit-complaint-modal (HideForm)="CloseModal()" (SaveComplaint)="SaveComplaint($event)"
-    [complaintId]="selectedComplaintId" [complaint]="complaint"></app-edit-complaint-modal>
+    [complaint]="complaint"></app-edit-complaint-modal>
 }
-
-@if (complaintToDelete) {
-    <app-delete-complaint-modal [complaint]="complaintToDelete"
-    (CancelDelete)="CloseDeleteModal()"
-    (ConfirmDelete)="DeleteComplaint($event)"></app-delete-complaint-modal>
-}
-

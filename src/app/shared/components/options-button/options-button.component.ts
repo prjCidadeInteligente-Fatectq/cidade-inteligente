@@ -11,13 +11,20 @@ import { Component, EventEmitter, HostListener, input, Input, Output } from "@an
             </button>
         
             <div class="dropdown-content" [class.show]="isMenuOpen">
-                @if (optionOne && optionTwo) {
-                    <button class="dropdown-item" (click)="SelectOption(optionOne + 'A &rarr; Z')">{{ optionOne }}</button>
-                    <button class="dropdown-item" (click)="SelectOption(optionTwo + 'Z &rarr; A')">{{ optionTwo }}</button>
+                @if (optionOne) {
+                    <button class="dropdown-item" (click)="SelectOption(optionOne)">{{ optionOne }}</button>
+                } 
+                @if (optionTwo) {
+                    <button class="dropdown-item" (click)="SelectOption(optionTwo)">{{ optionTwo }}</button>
+                } 
+                @if (optionThree) {
+                    <button class="dropdown-item" (click)="SelectOption(optionThree)">{{ optionThree }}</button>
+                } 
+                @if (optionFour) {
+                    <button class="dropdown-item" (click)="SelectOption(optionFour)">{{ optionFour }}</button>
                 }
+                
                     
-                <button class="dropdown-item" (click)="SelectOption(optionThree)">{{ optionThree }}</button>
-                <button class="dropdown-item" (click)="SelectOption(optionFour)">{{ optionFour }}</button>
             </div>
         </div>
     `

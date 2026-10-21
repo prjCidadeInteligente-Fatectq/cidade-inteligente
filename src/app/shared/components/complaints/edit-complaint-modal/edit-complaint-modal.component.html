@@ -20,7 +20,7 @@
 
           <div class="form-field">
             <label for="complaint-register-date">Data da denúncia</label>
-            <input id="complaint-register-date" type="date" name="registerDate" [(ngModel)]="form.register_date" required>
+            <input id="complaint-register-date" type="date" name="registerDate" [(ngModel)]="form.register_date" readonly>
           </div>
 
           <div class="form-field">
@@ -54,10 +54,10 @@
             <textarea id="complaint-description" name="description" rows="3" [(ngModel)]="form.description"></textarea>
           </div>
 
-          <div class="form-field">
+          <!--<div class="form-field">
             <label for="complaint-neighborhood-id">ID do bairro</label>
-            <!--<input id="complaint-neighborhood-id" type="text" name="neighborhoodId" [ngModel]="complaint?.neighborhood_id" readonly>-->
-          </div>
+            <input id="complaint-neighborhood-id" type="text" name="neighborhoodId" [ngModel]="complaint?.neighborhood_id" readonly>
+          </div>-->
 
           <div class="form-field">
             <label for="complaint-neighborhood-name">Bairro</label>
@@ -69,12 +69,12 @@
             <input id="complaint-street" type="text" name="street" [(ngModel)]="form.street" required>
           </div>
 
-          <div class="form-field">
+          <!-- <div class="form-field">
             <label>Prioridade do bairro</label>
-           <!-- <span class="priority-badge"
-                  [style.background-color]="priorityStyle.backgroundColor"
-                  [style.color]="priorityStyle.color">{{ form.priority }}</span> -->
-          </div>
+            <span class="priority-badge"
+              [style.background-color]="priorityStyle.backgroundColor"
+              [style.color]="priorityStyle.color"> {{ form.priority }}</span>
+          </div> -->
         </div>
 
         <div class="form-actions">

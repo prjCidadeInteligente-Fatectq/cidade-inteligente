@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, inject, Input, OnInit } from "@angular/core";
 import { Complaint } from "@core/models";
+import { GetComplaintsService } from "@core/services/complaints/get-complaints.service";
 
 interface ComplaintStatus {
     status: string;
@@ -14,12 +15,14 @@ interface ComplaintStatus {
     templateUrl: './complaints.component.html',
 })
 export class ComplaintsComponent implements OnInit {
+    private _changeDetectorRef = inject(ChangeDetectorRef);
+    private _getComplaints = inject(GetComplaintsService);
+
     @Input() filteredComplaints?: Complaint[] = [];
 
     complaint: Complaint | null = null;
     complaintToDelete: Complaint | null = null;
     isOptionsOpenId: string | null = null;
-    selectedComplaintId: string | null = null;
     expandedCardIds = new Set<string>();
     complaintStatus: ComplaintStatus[] = [];
 
@@ -79,21 +82,16 @@ export class ComplaintsComponent implements OnInit {
         }
     }
 
-    handleOption(option: string, complaint: Complaint) {
-        if (option === 'Editar') {
-            this.ShowModal(complaint.id, complaint);
-        } else if (option === 'Excluir') {
-            this.complaintToDelete = complaint;
-        }
-    }
-
-    ShowModal(id: string, complaint: Complaint) {
-        this.selectedComplaintId = id;
-        this.complaint = complaint;
-    }
-
-    DeleteComplaint(complaint: Complaint) {
-        
+    handleOption(option: string, id: string) {
+        this._getComplaints.getComplaintById(id).subscribe({
+            next: (data) => {
+                this.complaint = data;
+                this._changeDetectorRef.markForCheck();
+            },
+            error: (error) => {
+                console.error(error)
+            }
+        });
     }
 
     CloseDeleteModal() {
@@ -105,7 +103,6 @@ export class ComplaintsComponent implements OnInit {
     }
 
     CloseModal() {
-        this.selectedComplaintId = null;
         this.complaint = null;
     }
 }

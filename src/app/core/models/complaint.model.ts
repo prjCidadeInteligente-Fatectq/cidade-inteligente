@@ -7,7 +7,7 @@ export interface ComplaintById {
 export interface Complaint {
     id: string;
     problem: string;
-    priority?: string;
+    priority: string;
     status: string;
     street: string;
     neighborhood: string;
