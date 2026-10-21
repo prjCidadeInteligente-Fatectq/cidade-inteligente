@@ -1,11 +1,18 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { Complaint } from '@core/models';
+import { GetComplaintsService } from '@core/services/complaints/get-complaints.service';
 
 interface ChartItem {
   label: string;
   value: number;
   color: string;
+}
+
+export interface ComplaintStatusQuant {
+  TotalPending: number;
+  TotalProgress: number;
+  TotalComplet: number;
 }
 
 @Component({
@@ -15,6 +22,8 @@ interface ChartItem {
   templateUrl: './complaint-counter.component.html',
 })
 export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  private _getComplaint = inject(GetComplaintsService);
 
   @Input() complaints: Complaint[] = [];
 
@@ -27,47 +36,87 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
 
   totalComplaints: number = 0;
   
-  ngOnInit(): void {
-    this.totalComplaints = this.complaints.length;
+  complaintStatusQuant: ComplaintStatusQuant | null = null;
 
-    this.chartItems = [
-      { label: 'Pendentes', value: this.complaints.filter(c => c.complaintStatus === 'PENDENTE').length, color: '#F59E0B' },
-      { label: 'Obras em andamento', value: this.complaints.filter(c => c.complaintStatus === 'EM ANDAMENTO').length, color: '#2d8fd1' },
-      { label: 'Obras concluídas', value: this.complaints.filter(c => c.complaintStatus === 'CONCLUÍDA').length, color: '#22C55E' }
-    ]
+  ngOnInit(): void {
+    this._getComplaint.getTotalComplaints().subscribe({
+      next: (data) => {
+        this.complaintStatusQuant = data;
+        
+        this.chartItems = [
+          { label: 'Pendentes',
+            value: this.complaintStatusQuant?.TotalPending,
+            color: '#F59E0B' 
+          },
+          {
+            label: 'Obras em andamento',
+            value: this.complaintStatusQuant?.TotalProgress,
+            color: '#2d8fd1'
+          },
+          {
+            label: 'Obras concluídas',
+            value: this.complaintStatusQuant?.TotalComplet,
+            color: '#22C55E'
+          }
+        ]
+
+        this.totalComplaints = this.complaintStatusQuant?.TotalPending + 
+        this.complaintStatusQuant?.TotalProgress + 
+        this.complaintStatusQuant?.TotalComplet;
+
+        this.CreateChart();
+      },
+      error: (error) => {
+        console.error(error)
+      }
+    })
   }
 
-  ngAfterViewInit(): void {
-    this.chart = new Chart(this.pizzaChart.nativeElement, {
-      type: 'pie',
+  CreateChart() {
+  if (!this.pizzaChart) return;
 
-      data: {
-        labels: this.chartItems.map(item => `${item.label} (${Math.round(item.value / this.totalComplaints * 100)}%)`),
-        datasets: [{
-          data: this.chartItems.map(item => item.value),
-          backgroundColor: this.chartItems.map(item => item.color),
-          borderColor: 'transparent',
-        }]
-      },
+  this.chart?.destroy();
 
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false
-          },
-          tooltip: {
-            callbacks: {
-              label: (context) => {
-                const item = this.chartItems[context.dataIndex];
-                return `${item.label}: ${item.value}`;
-              }
+  this.chart = new Chart(this.pizzaChart.nativeElement, {
+    type: 'pie',
+    data: {
+      labels: this.chartItems.map(item => {
+        const percentage = this.totalComplaints > 0
+          ? Math.round(item.value / this.totalComplaints * 100)
+          : 0;
+
+        return `${item.label} (${percentage}%)`;
+      }),
+      datasets: [{
+        data: this.chartItems.map(item => item.value),
+        backgroundColor: this.chartItems.map(item => item.color),
+        borderColor: 'transparent'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              const item = this.chartItems[context.dataIndex];
+              return `${item.label}: ${item.value}`;
             }
           }
         }
+        }
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.chartItems.length > 0) {
+    this.CreateChart();
+  }
   }
 
   ngOnDestroy(): void {
