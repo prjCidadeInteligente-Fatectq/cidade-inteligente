@@ -11,6 +11,10 @@ export interface ComplaintStatusQuant {
   totalComplet: number;
 }
 
+export interface NeighborhoodsWithTotalComplaints {
+    complaintByNeighborhoodList: Neighborhood[];
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -22,8 +26,8 @@ export class GetComplaintsService {
         return this._httpClient.get<ComplaintStatusQuant>(`${this._apiUrl}/GetTotalComplaints`)
     }
 
-    getNeighborhoodsWithTotal(): Observable<Neighborhood[]> {
-        return this._httpClient.get<Neighborhood[]>(`${this._apiUrl}/GetComplaintsByNeighborhoodWithTotal`);
+    getNeighborhoodsWithTotal(): Observable<NeighborhoodsWithTotalComplaints> {
+        return this._httpClient.get<NeighborhoodsWithTotalComplaints>(`${this._apiUrl}/GetComplaintsByNeighborhoodWithTotal`);
     }
 
     getComplaintsByNeighborhood(neighborhood: string): Observable<ComplaintById[]> {

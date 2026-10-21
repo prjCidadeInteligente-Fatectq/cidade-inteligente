@@ -1,10 +1,8 @@
-import { NeighborhoodPriority } from "./neighborhood.model";
-
 export type ComplaintStatusType = 'PENDENTE' | 'EM ANDAMENTO' | 'CONCLUÍDA';
 
 export interface ComplaintById {
     neighborhoodId: string;
-    priority: NeighborhoodPriority;
+    priority: string;
     complaintsByNeighborhood: Complaint[];
 }
 

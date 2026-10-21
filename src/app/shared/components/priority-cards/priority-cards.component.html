@@ -2,7 +2,7 @@
     @for (priority of priorities; track priority.name) {
         <article class="card" (mouseenter)="activeMenuPriority = null">
             <header class="header" [style.background-color]="priority.color">
-                <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }}</span>
+                <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }} {{priority.quantity === 1 ? 'bairro' : 'bairros'}}</span>
                 
                 <app-options
                     (SelectedOption)="OrderComplaints($event)"

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from "@angular/core";
-import { Complaint, ComplaintStatusType, NeighborhoodPriority } from "@core/models";
+import { Complaint, ComplaintStatusType, } from "@core/models";
 
 interface StatusOption {
     status: ComplaintStatusType;
@@ -39,7 +39,7 @@ export class EditComplaintModalComponent {
         },
     ];
 
-    priorityStyles: Record<NeighborhoodPriority, { backgroundColor: string; color: string }> = {
+    priorityStyles: Record<string, { backgroundColor: string; color: string }> = {
         ALTA: {
             backgroundColor: 'hsla(0, 93%, 60%, 0.15)',
             color: '#b91c1c'

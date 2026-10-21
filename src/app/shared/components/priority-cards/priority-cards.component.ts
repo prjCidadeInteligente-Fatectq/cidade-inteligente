@@ -1,9 +1,9 @@
-import { Component, inject, Input, OnInit } from "@angular/core";
-import { Complaint, ComplaintById, Neighborhood, NeighborhoodPriority } from '@core/models';
+import { ChangeDetectorRef, Component, inject, OnInit } from "@angular/core";
+import { Complaint, ComplaintById, Neighborhood } from '@core/models';
 import { GetComplaintsService } from "@core/services/complaints/get-complaints.service";
 
 interface Priority {
-    name: NeighborhoodPriority;
+    name: string;
     color: string;
     quantity: number;
 }
@@ -14,6 +14,7 @@ interface Priority {
     templateUrl: './priority-cards.component.html',
 })
 export class PriorityCardsComponent implements OnInit {
+    private _changeDetectorRef = inject(ChangeDetectorRef);
     private _getComplaints = inject(GetComplaintsService);
 
     complaintsAndNeighborhood: ComplaintById[] = [];
@@ -30,21 +31,7 @@ export class PriorityCardsComponent implements OnInit {
     ngOnInit(): void {
         this._getComplaints.getNeighborhoodsWithTotal().subscribe({
             next: (data) => {
-                this.neighborhoods = data;
-            },
-            error: (error) => {
-                console.error(error);
-            }
-        });
-    }
-
-    OpenModal(neighborhood: string) {
-        this.selectedNeighborhood = neighborhood;
-        this.isModalOpen = true;
-
-        this._getComplaints.getComplaintsByNeighborhood(this.selectedNeighborhood).subscribe({
-            next: (data) => {
-                //this.complaints = data;
+                this.neighborhoods = data.complaintByNeighborhoodList;
 
                 this.priorities = [
                     {
@@ -63,6 +50,26 @@ export class PriorityCardsComponent implements OnInit {
                         quantity: this.neighborhoods.filter(n => n.priority === 'BAIXA').length
                     }
                 ];
+
+                console.log(this.neighborhoods.filter(n => n.priority === 'ALTA').length);
+                console.log(this.neighborhoods.filter(n => n.priority === 'MÉDIA').length);
+                console.log(this.neighborhoods.filter(n => n.priority === 'BAIXA').length);
+
+                this._changeDetectorRef.markForCheck();
+            },
+            error: (error) => {
+                console.error(error);
+            }
+        });
+    }
+
+    OpenModal(neighborhood: string) {
+        this.selectedNeighborhood = neighborhood;
+        this.isModalOpen = true;
+
+        this._getComplaints.getComplaintsByNeighborhood(this.selectedNeighborhood).subscribe({
+            next: (data) => {
+                // this.complaints = data;
             },
             error: (error) => {
                 console.error(error);

@@ -11,10 +11,10 @@ interface NeighborhoodSummary {
     standalone: false,
     styleUrl: './neighborhoods.component.css',
     template: `
-        @for (neighborhood of filteredNeighborhoods; track neighborhood.Neighborhood;) {
-            <button class="neighborhood" (click)="sendNeighborhood(neighborhood.Neighborhood)">
+        @for (neighborhood of filteredNeighborhoods; track neighborhood.neighborhood;) {
+            <button class="neighborhood" (click)="sendNeighborhood(neighborhood.neighborhood)">
                 <span>
-                    {{ neighborhood.Neighborhood }} - {{ neighborhood.Total }} Denúncias
+                    {{ neighborhood.neighborhood }} - {{ neighborhood.total }} Denúncias
                 </span>
 
                 <span class="open"><i class="fa-solid fa-chevron-up fa-rotate-90" style="color: #242425;"></i></span>
