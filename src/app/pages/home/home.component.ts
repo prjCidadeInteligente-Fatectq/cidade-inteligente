@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this._getComplaints.getComplaintsWithOldTimeRange().subscribe({
       next: (data) => {
-        this.complaintsWithOldTimeRange = data;
+        this.complaintsWithOldTimeRange = data.complaintsByNeighborhood;
       },
       error: (error) => {
         console.error(error)
