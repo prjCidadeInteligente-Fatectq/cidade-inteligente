@@ -13,15 +13,13 @@ interface StatusOption {
     styleUrl: './edit-complaint-modal.component.css',
     templateUrl: './edit-complaint-modal.component.html'
 })
-export class EditComplaintModalComponent implements OnChanges {
+export class EditComplaintModalComponent {
     @Input() complaint?: Complaint | null;
     @Input() complaintId: string | null = '';
     @Output() HideForm = new EventEmitter<string>();
     @Output() SaveComplaint = new EventEmitter<Complaint>();
 
     isStatusOpen = false;
-
-    imagesInput = '';
 
     statusOptions: StatusOption[] = [
         {
@@ -59,47 +57,29 @@ export class EditComplaintModalComponent implements OnChanges {
     form: Complaint = {
         id: '',
         problem: '',
-        registerDate: '',
-        latitude: 0,
-        longitude: 0,
+        status: 'PENDENTE',
         street: '',
+        neighborhood: '',
+        register_date: '',
         description: '',
-        neighborhood: { id: '', name: '', priority: 'MÉDIA' },
-        user: { id: '', phone: '', role: 'CIDADÃO' },
-        complaintStatus: 'PENDENTE',
-        imagesPaths: []
-    };
-
-    ngOnChanges(changes: SimpleChanges): void {
-        if (changes['complaint'] && this.complaint) {
-            this.form = {
-                ...this.complaint,
-                registerDate: this.complaint.registerDate.slice(0, 10),
-                description: this.complaint.description ?? '',
-                neighborhood: { ...this.complaint.neighborhood },
-                user: { ...this.complaint.user },
-                imagesPaths: [...this.complaint.imagesPaths]
-            };
-
-            this.imagesInput = this.complaint.imagesPaths.join(', ');
-            this.isStatusOpen = false;
-        }
+        phone: '',
+        user_id: '',
     }
 
     get selectedStatus(): StatusOption {
-        return this.statusOptions.find(option => option.status === this.form.complaintStatus) ?? this.statusOptions[0];
+        return this.statusOptions.find(option => option.status === this.form.status) ?? this.statusOptions[0];
     }
 
-    get priorityStyle(): { backgroundColor: string; color: string } {
-        return this.priorityStyles[this.form.neighborhood.priority];
-    }
+    // get priorityStyle(): { backgroundColor: string; color: string } {
+    //     return this.priorityStyles[this.form.priority];
+    // }
 
     toggleStatusMenu() {
         this.isStatusOpen = !this.isStatusOpen;
     }
 
     selectStatus(status: ComplaintStatusType) {
-        this.form.complaintStatus = status;
+        this.form.status = status;
         this.isStatusOpen = false;
     }
 
@@ -110,8 +90,7 @@ export class EditComplaintModalComponent implements OnChanges {
 
         const updated: Complaint = {
             ...this.form,
-            registerDate: `${this.form.registerDate.slice(0, 10)}T00:00:00Z`,
-            imagesPaths: this.imagesInput.split(',').map(path => path.trim()).filter(path => path.length > 0)
+            register_date: `${this.form.register_date.slice(0, 10)}T00:00:00Z`
         };
 
         this.SaveComplaint.emit(updated);

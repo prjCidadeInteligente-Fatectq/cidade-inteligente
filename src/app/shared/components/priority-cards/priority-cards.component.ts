@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit } from "@angular/core";
-import { Complaint, Neighborhood, NeighborhoodPriority } from '@core/models';
+import { Complaint, ComplaintById, Neighborhood, NeighborhoodPriority } from '@core/models';
 import { GetComplaintsService } from "@core/services/complaints/get-complaints.service";
 
 interface Priority {
@@ -16,7 +16,9 @@ interface Priority {
 export class PriorityCardsComponent implements OnInit {
     private _getComplaints = inject(GetComplaintsService);
 
-    complaints: Complaint[] = [];
+    complaintsAndNeighborhood: ComplaintById[] = [];
+    //complaints: Complaint
+
     neighborhoods: Neighborhood[] = [];
 
     isModalOpen: boolean = false;
@@ -42,7 +44,7 @@ export class PriorityCardsComponent implements OnInit {
 
         this._getComplaints.getComplaintsByNeighborhood(this.selectedNeighborhood).subscribe({
             next: (data) => {
-                this.complaints = data;
+                //this.complaints = data;
 
                 this.priorities = [
                     {

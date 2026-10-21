@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, AfterViewInit, Component, ElementRef, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js/auto';
-import { Complaint } from '@core/models';
 import { ComplaintStatusQuant, GetComplaintsService } from '@core/services/complaints/get-complaints.service';
 
 interface ChartItem {
@@ -16,8 +15,8 @@ interface ChartItem {
   templateUrl: './complaint-counter.component.html',
 })
 export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  private _getComplaints = inject(GetComplaintsService);
+  private _changeDetectorRef = inject(ChangeDetectorRef);
+  private _getComplaints = inject(GetComplaintsService);  
   
   @ViewChild('pizzaChart')
   pizzaChart!: ElementRef<HTMLCanvasElement>;
@@ -37,24 +36,26 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
         
         this.chartItems = [
           { label: 'Pendentes',
-            value: this.complaintStatusQuant?.TotalPending,
+            value: this.complaintStatusQuant?.totalPending,
             color: '#F59E0B' 
           },
           {
             label: 'Obras em andamento',
-            value: this.complaintStatusQuant?.TotalProgress,
+            value: this.complaintStatusQuant?.totalProgress,
             color: '#2d8fd1'
           },
           {
             label: 'Obras concluídas',
-            value: this.complaintStatusQuant?.TotalComplet,
+            value: this.complaintStatusQuant?.totalComplet,
             color: '#22C55E'
           }
         ]
 
-        this.totalComplaints = this.complaintStatusQuant?.TotalPending + 
-        this.complaintStatusQuant?.TotalProgress + 
-        this.complaintStatusQuant?.TotalComplet;
+        this.totalComplaints = this.complaintStatusQuant?.totalPending + 
+        this.complaintStatusQuant?.totalProgress + 
+        this.complaintStatusQuant?.totalComplet;
+
+        this._changeDetectorRef.markForCheck();
 
         this.CreateChart();
       },

@@ -1,3 +1,4 @@
+import { ComplaintById } from '@core/models';
 import { Neighborhood } from '@core/models';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
@@ -5,9 +6,9 @@ import { Complaint } from "@core/models";
 import { Observable } from "rxjs";
 
 export interface ComplaintStatusQuant {
-  TotalPending: number;
-  TotalProgress: number;
-  TotalComplet: number;
+  totalPending: number;
+  totalProgress: number;
+  totalComplet: number;
 }
 
 @Injectable({
@@ -25,11 +26,15 @@ export class GetComplaintsService {
         return this._httpClient.get<Neighborhood[]>(`${this._apiUrl}/GetComplaintsByNeighborhoodWithTotal`);
     }
 
-    getComplaintsByNeighborhood(neighborhood: string): Observable<Complaint[]> {
-        return this._httpClient.get<Complaint[]>(`${this._apiUrl}/GetAllComplaintsByNeighborhood/${neighborhood}`);
+    getComplaintsByNeighborhood(neighborhood: string): Observable<ComplaintById[]> {
+        return this._httpClient.get<ComplaintById[]>(`${this._apiUrl}/GetAllComplaintsByNeighborhood/${neighborhood}`);
     }
 
     getComplaintsWithOldTimeRange(): Observable<Complaint[]> {
-        return this._httpClient.get<Complaint[]>(`${this._apiUrl}/GetAllComplaintsWithOldestTimeRange`)
+        return this._httpClient.get<Complaint[]>(`${this._apiUrl}/GetAllComplaintsWithOldestTimeRange`);
+    }
+
+    getComplaintById(id: string): Observable<ComplaintById> {
+        return this._httpClient.get<ComplaintById>(`${this._apiUrl}/GetComplaintsById/${id}`)
     }
 }

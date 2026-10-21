@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Complaint, ComplaintStatusType } from "@core/models";
-import { complaints as allComplaints } from '@shared/data/complaints';
-
 
 interface ComplaintStatus {
     status: ComplaintStatusType;
@@ -95,13 +93,7 @@ export class ComplaintsComponent implements OnInit {
     }
 
     DeleteComplaint(complaint: Complaint) {
-        const index = allComplaints.findIndex(item => item.id === complaint.id);
-
-        if (index !== -1) {
-            allComplaints.splice(index, 1);
-        }
-
-        this.CloseDeleteModal();
+        
     }
 
     CloseDeleteModal() {
@@ -109,13 +101,7 @@ export class ComplaintsComponent implements OnInit {
     }
 
     SaveComplaint(updated: Complaint) {
-        const target = this.filteredComplaints?.find(item => item.id === updated.id);
-
-        if (target) {
-            Object.assign(target, updated);
-        }
-
-        this.CloseModal();
+        
     }
 
     CloseModal() {

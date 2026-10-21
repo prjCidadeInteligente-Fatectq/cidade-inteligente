@@ -22,13 +22,13 @@ import { Complaint } from "@core/models";
 
         <div class="modal-body">
           @if (neighborhoodName) {
-            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.neighborhood.name === neighborhoodName)">
+            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.neighborhood === neighborhoodName)">
             </app-complaints>
           } @else if (date) { 
-            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.complaintStatus !== 'CONCLUÍDA')"></app-complaints>
+            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.status !== 'CONCLUÍDA')"></app-complaints>
 
             <h3>Concluídas:</h3>
-            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.complaintStatus === 'CONCLUÍDA')"></app-complaints>
+            <app-complaints [filteredComplaints]="filteredComplaints?.filter(c => c.status === 'CONCLUÍDA')"></app-complaints>
           }
         
             
@@ -44,7 +44,7 @@ export class ComplaintsModalComponent {
     @Input() filteredComplaints?: Complaint[] = [];
     @Output() HideComplaints = new EventEmitter<string>();
 
-    notConcludedComplaints?: Complaint[] = this.filteredComplaints?.filter(c => c.complaintStatus === 'CONCLUÍDA');
+    notConcludedComplaints?: Complaint[] = this.filteredComplaints?.filter(c => c.status === 'CONCLUÍDA');
 
     HideModal() {
         this.HideComplaints.emit();

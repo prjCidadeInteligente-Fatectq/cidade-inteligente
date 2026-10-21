@@ -88,9 +88,9 @@ export class MonthComponent {
         const calendarDateString = `${year}-${month}-${dayNum}`;
         
         if (flow === 'COUNT') {
-            return this.complaints.filter(c => { return c.registerDate && c.registerDate.startsWith(calendarDateString); }).length;
+            return this.complaints.filter(c => { return c.register_date && c.register_date.startsWith(calendarDateString); }).length;
         } else if (flow === 'FILTER') {
-            return this.complaints.filter(c => { return c.registerDate && c.registerDate.startsWith(calendarDateString); });
+            return this.complaints.filter(c => { return c.register_date && c.register_date.startsWith(calendarDateString); });
         }
         else return;
     }

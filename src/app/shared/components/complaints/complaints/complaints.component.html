@@ -1,5 +1,5 @@
 @for (complaint of filteredComplaints; track complaint.id) {
-    @let statusStyle = getStatusStyle(complaint.complaintStatus);
+    @let statusStyle = getStatusStyle(complaint.status);
 
     <article class="card">
         <button (click)="toggleExpand(complaint.id)" class="complaint" [class.expanded]="isExpanded(complaint.id)">
@@ -9,11 +9,11 @@
                         <span class="desc">{{ complaint.problem }}</span>
                         <small class="small">
                             <i class="fa-solid fa-location-dot"></i>
-                            {{ complaint.street }}, {{ complaint.neighborhood.name }}
+                            {{ complaint.street }}, {{ complaint.neighborhood }}
                         </small>
                         <small class="small">
                             <i class="fa-regular fa-calendar-days"></i>
-                            Denúncia realizada em: {{ formatRegisterDate(complaint.registerDate) }}
+                            Denúncia realizada em: {{ formatRegisterDate(complaint.register_date) }}
                         </small>
                     </div>
 
@@ -24,14 +24,14 @@
 
                 @if (isExpanded(complaint.id)) {
                     <div class="images">
-                        @for (imagePath of complaint.imagesPaths; track imagePath) {
+                        @for (imagePath of complaint.image_path; track imagePath) {
                             <img [src]="imagePath">
                         }
                     </div>
                 }   
         
                 <div class="additional-info">
-                    <span class="status" [style.background-color]="statusStyle.backgroundColor" [style.color]="statusStyle.color">{{ complaint.complaintStatus }}</span>
+                    <span class="status" [style.background-color]="statusStyle.backgroundColor" [style.color]="statusStyle.color">{{ complaint.status }}</span>
         
                     @if (!isExpanded(complaint.id)) {
                         <i class="fa-solid fa-chevron-down" style="color: #181818;"></i>

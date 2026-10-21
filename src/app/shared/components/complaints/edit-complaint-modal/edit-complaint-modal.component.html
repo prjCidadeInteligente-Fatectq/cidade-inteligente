@@ -20,7 +20,7 @@
 
           <div class="form-field">
             <label for="complaint-register-date">Data da denúncia</label>
-            <input id="complaint-register-date" type="date" name="registerDate" [(ngModel)]="form.registerDate" required>
+            <input id="complaint-register-date" type="date" name="registerDate" [(ngModel)]="form.register_date" required>
           </div>
 
           <div class="form-field">
@@ -30,7 +30,7 @@
                       [style.background-color]="selectedStatus.backgroundColor"
                       [style.color]="selectedStatus.color"
                       (click)="toggleStatusMenu()">
-                {{ form.complaintStatus }}
+                {{ form.status }}
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
 
@@ -49,34 +49,19 @@
             </div>
           </div>
 
-          <div class="form-field">
-            <label for="complaint-latitude">Latitude</label>
-            <input id="complaint-latitude" type="number" step="any" name="latitude" [(ngModel)]="form.latitude" required>
-          </div>
-
-          <div class="form-field">
-            <label for="complaint-longitude">Longitude</label>
-            <input id="complaint-longitude" type="number" step="any" name="longitude" [(ngModel)]="form.longitude" required>
-          </div>
-
           <div class="form-field full">
             <label for="complaint-description">Descrição</label>
             <textarea id="complaint-description" name="description" rows="3" [(ngModel)]="form.description"></textarea>
           </div>
 
-          <div class="form-field full">
-            <label for="complaint-images">Imagens (separadas por vírgula)</label>
-            <textarea id="complaint-images" name="images" rows="2" [(ngModel)]="imagesInput"></textarea>
-          </div>
-
           <div class="form-field">
             <label for="complaint-neighborhood-id">ID do bairro</label>
-            <input id="complaint-neighborhood-id" type="text" name="neighborhoodId" [ngModel]="form.neighborhood.id" readonly>
+            <!--<input id="complaint-neighborhood-id" type="text" name="neighborhoodId" [ngModel]="complaint?.neighborhood_id" readonly>-->
           </div>
 
           <div class="form-field">
             <label for="complaint-neighborhood-name">Bairro</label>
-            <input id="complaint-neighborhood-name" type="text" name="neighborhoodName" [(ngModel)]="form.neighborhood.name" required>
+            <input id="complaint-neighborhood-name" type="text" name="neighborhoodName" [(ngModel)]="form.neighborhood" required>
           </div>
 
           <div class="form-field">
@@ -86,19 +71,19 @@
 
           <div class="form-field">
             <label>Prioridade do bairro</label>
-            <span class="priority-badge"
+           <!-- <span class="priority-badge"
                   [style.background-color]="priorityStyle.backgroundColor"
-                  [style.color]="priorityStyle.color">{{ form.neighborhood.priority }}</span>
+                  [style.color]="priorityStyle.color">{{ form.priority }}</span> -->
           </div>
 
           <div class="form-field">
             <label for="complaint-user-id">ID do denunciante</label>
-            <input id="complaint-user-id" type="text" name="userId" [ngModel]="form.user.id" readonly>
+            <input id="complaint-user-id" type="text" name="userId" [ngModel]="form.user_id" readonly>
           </div>
 
           <div class="form-field">
             <label for="complaint-user-phone">Telefone do denunciante</label>
-            <input id="complaint-user-phone" type="text" name="userPhone" [(ngModel)]="form.user.phone" required>
+            <input id="complaint-user-phone" type="text" name="userPhone" [(ngModel)]="form.phone" required>
           </div>
         </div>
 

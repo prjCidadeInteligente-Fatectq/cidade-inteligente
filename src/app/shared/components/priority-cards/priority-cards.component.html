@@ -27,7 +27,6 @@
 @if (isModalOpen) {
     <app-complaints-modal 
         [neighborhoodName]="selectedNeighborhood"
-        [filteredComplaints]="complaints"
         (HideComplaints)="CloseModal()">
     </app-complaints-modal>
 }
