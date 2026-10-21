@@ -1,19 +1,15 @@
-import { User } from './user.model';
-
-import { Neighbohood } from './neighborhood.model';
+import { Neighborhood } from './neighborhood.model';
 
 export type ComplaintStatusType = 'PENDENTE' | 'EM ANDAMENTO' | 'CONCLUÍDA';
 
 export interface Complaint {
     id: string;
     problem: string;
-    registerDate: string;
-    latitude: number;
-    longitude: number;
+    status: ComplaintStatusType;
     street: string;
-    description?: string;
-    neighborhood: Neighbohood;
-    user: User;
-    complaintStatus: ComplaintStatusType;
+    neighborhood: Neighborhood;
+    register_date: string;
+    description: string;
+    phone: string;
     imagesPaths: string[];
 }

@@ -5,7 +5,7 @@
                 <span>PRIORIDADE {{ priority.name }} - {{ priority.quantity }}</span>
                 
                 <app-options
-                    (SelectedOption)="OrderComplaints()"
+                    (SelectedOption)="OrderComplaints($event)"
                     (MenuChanges)="toggleMenu(priority.name, $event)"
                     [isMenuOpen]="activeMenuPriority === priority.name"
                     optionOne="A &rarr; Z" optionTwo=" Z &rarr; A"
@@ -17,7 +17,7 @@
             <div class="neighborhoods">
                 <app-neighborhoods 
                     (ShowComplaints)="OpenModal($event)"
-                    [filteredComplaints]="filteredComplaints.filter(c => c.neighborhood.priority === priority.name)">
+                    [filteredNeighborhoods]="neighborhoods.filter(n => n.priority === priority.name)">
                 </app-neighborhoods>
             </div>
         </article>
@@ -27,7 +27,7 @@
 @if (isModalOpen) {
     <app-complaints-modal 
         [neighborhoodName]="selectedNeighborhood"
-        [filteredComplaints]="filteredComplaints"
+        [filteredComplaints]="complaints"
         (HideComplaints)="CloseModal()">
     </app-complaints-modal>
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Complaint } from "@core/models";
+import { Complaint, Neighborhood } from "@core/models";
 
 interface NeighborhoodSummary {
     name: string;
@@ -11,10 +11,10 @@ interface NeighborhoodSummary {
     standalone: false,
     styleUrl: './neighborhoods.component.css',
     template: `
-        @for (item of uniqueNeighborhoods; track item.name;) {
-            <button class="neighborhood" (click)="sendNeighborhood(item.name)">
+        @for (neighborhood of filteredNeighborhoods; track neighborhood.Neighborhood;) {
+            <button class="neighborhood" (click)="sendNeighborhood(neighborhood.Neighborhood)">
                 <span>
-                    {{ item.name }} - {{ item.count }} Denúncias
+                    {{ neighborhood.Neighborhood }} - {{ neighborhood.Total }} Denúncias
                 </span>
 
                 <span class="open"><i class="fa-solid fa-chevron-up fa-rotate-90" style="color: #242425;"></i></span>
@@ -23,19 +23,8 @@ interface NeighborhoodSummary {
     `
 })
 export class NeighbohoodComponent {
-    @Input() filteredComplaints: Complaint[] = [];
+    @Input() filteredNeighborhoods: Neighborhood[] = [];
     @Output() ShowComplaints = new EventEmitter<string>
-
-    get uniqueNeighborhoods(): NeighborhoodSummary[] {
-        const counts = new Map<string, number>();
-
-        for (const complaint of this.filteredComplaints) {
-            const name = complaint.neighborhood.name;
-            counts.set(name, (counts.get(name) || 0) + 1);
-        }
-
-        return Array.from(counts, ([name, count]) => ({ name, count }));
-    }
 
     sendNeighborhood(neighborhood: string) {
         this.ShowComplaints.emit(neighborhood)

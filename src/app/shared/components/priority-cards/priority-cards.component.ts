@@ -1,12 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { Complaint, NeighborhoodPriority } from '@core/models';
-import { complaints } from '@shared/data/complaints';
-
-interface Priority {
-    name: NeighborhoodPriority;
-    color: string;
-    quantity: number;
-}
+import { Component, inject, Input, OnInit } from "@angular/core";
+import { Complaint, Neighborhood, NeighborhoodPriority } from '@core/models';
+import { GetComplaintsService } from "@core/services/complaints/get-complaints.service";
 
 interface Priority {
     name: NeighborhoodPriority;
@@ -20,7 +14,10 @@ interface Priority {
     templateUrl: './priority-cards.component.html',
 })
 export class PriorityCardsComponent implements OnInit {
-    @Input() filteredComplaints: Complaint[] = [];
+    private _getComplaints = inject(GetComplaintsService);
+
+    complaints: Complaint[] = [];
+    neighborhoods: Neighborhood[] = [];
 
     isModalOpen: boolean = false;
     activeMenuPriority: string | null = null;
@@ -29,29 +26,46 @@ export class PriorityCardsComponent implements OnInit {
     priorities: Priority[] = []
 
     ngOnInit(): void {
-        this.priorities = [
-        {
-            name: 'ALTA',
-            color: '#d23131',
-            quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'ALTA').length
-        },
-        {
-            name: 'MÉDIA',
-            color: '#edda09',
-
-            quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'MÉDIA').length
-        },
-        {
-            name: 'BAIXA',
-            color: '#3aad3c',
-            quantity: this.filteredComplaints.filter(c => c.neighborhood.priority === 'BAIXA').length
-        }
-    ];
+        this._getComplaints.getNeighborhoodsWithTotal().subscribe({
+            next: (data) => {
+                this.neighborhoods = data;
+            },
+            error: (error) => {
+                console.error(error);
+            }
+        });
     }
 
     OpenModal(neighborhood: string) {
         this.selectedNeighborhood = neighborhood;
-        this.isModalOpen = true
+        this.isModalOpen = true;
+
+        this._getComplaints.getComplaintsByNeighborhood(this.selectedNeighborhood).subscribe({
+            next: (data) => {
+                this.complaints = data;
+
+                this.priorities = [
+                    {
+                        name: 'ALTA',
+                        color: '#d23131',
+                        quantity: this.neighborhoods.filter(n => n.priority === 'ALTA').length
+                    },
+                    {
+                        name: 'MÉDIA',
+                        color: '#edda09',
+                        quantity: this.neighborhoods.filter(n => n.priority === 'MÉDIA').length
+                    },
+                    {
+                        name: 'BAIXA',
+                        color: '#3aad3c',
+                        quantity: this.neighborhoods.filter(n => n.priority === 'BAIXA').length
+                    }
+                ];
+            },
+            error: (error) => {
+                console.error(error);
+            }
+        });
     }
 
     CloseModal() {
@@ -62,7 +76,7 @@ export class PriorityCardsComponent implements OnInit {
         this.activeMenuPriority = isMenuOpen ? priorityName : null;
     }
 
-    OrderComplaints() {
-
+    OrderComplaints(option: string) {
+        
     }
 }

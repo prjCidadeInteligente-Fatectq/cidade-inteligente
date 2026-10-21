@@ -1,18 +1,12 @@
 import { AfterViewInit, Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { Complaint } from '@core/models';
-import { GetComplaintsService } from '@core/services/complaints/get-complaints.service';
+import { ComplaintStatusQuant, GetComplaintsService } from '@core/services/complaints/get-complaints.service';
 
 interface ChartItem {
   label: string;
   value: number;
   color: string;
-}
-
-export interface ComplaintStatusQuant {
-  TotalPending: number;
-  TotalProgress: number;
-  TotalComplet: number;
 }
 
 @Component({
@@ -23,7 +17,7 @@ export interface ComplaintStatusQuant {
 })
 export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  private _getComplaint = inject(GetComplaintsService);
+  private _getComplaints = inject(GetComplaintsService);
 
   @Input() complaints: Complaint[] = [];
 
@@ -39,7 +33,7 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
   complaintStatusQuant: ComplaintStatusQuant | null = null;
 
   ngOnInit(): void {
-    this._getComplaint.getTotalComplaints().subscribe({
+    this._getComplaints.getTotalComplaints().subscribe({
       next: (data) => {
         this.complaintStatusQuant = data;
         
@@ -69,7 +63,7 @@ export class ComplaintCounterComponent implements OnInit, AfterViewInit, OnDestr
       error: (error) => {
         console.error(error)
       }
-    })
+    });
   }
 
   CreateChart() {

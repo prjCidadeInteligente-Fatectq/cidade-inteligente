@@ -1,7 +1,8 @@
 export type NeighborhoodPriority = 'ALTA' | 'MÉDIA' | 'BAIXA';
 
-export interface Neighbohood {
+export interface Neighborhood {
     id: string;
-    name: string;
+    Neighborhood: string;
+    Total?: number
     priority: NeighborhoodPriority;
 }
