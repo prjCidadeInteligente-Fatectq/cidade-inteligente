@@ -75,16 +75,6 @@
                   [style.background-color]="priorityStyle.backgroundColor"
                   [style.color]="priorityStyle.color">{{ form.priority }}</span> -->
           </div>
-
-          <div class="form-field">
-            <label for="complaint-user-id">ID do denunciante</label>
-            <input id="complaint-user-id" type="text" name="userId" [ngModel]="form.user_id" readonly>
-          </div>
-
-          <div class="form-field">
-            <label for="complaint-user-phone">Telefone do denunciante</label>
-            <input id="complaint-user-phone" type="text" name="userPhone" [(ngModel)]="form.phone" required>
-          </div>
         </div>
 
         <div class="form-actions">

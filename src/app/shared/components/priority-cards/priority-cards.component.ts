@@ -18,7 +18,7 @@ export class PriorityCardsComponent implements OnInit {
     private _getComplaints = inject(GetComplaintsService);
 
     complaintsAndNeighborhood: ComplaintById[] = [];
-    //complaints: Complaint
+    complaints: Complaint[] = [];
 
     neighborhoods: Neighborhood[] = [];
 
@@ -51,10 +51,6 @@ export class PriorityCardsComponent implements OnInit {
                     }
                 ];
 
-                console.log(this.neighborhoods.filter(n => n.priority === 'ALTA').length);
-                console.log(this.neighborhoods.filter(n => n.priority === 'MÉDIA').length);
-                console.log(this.neighborhoods.filter(n => n.priority === 'BAIXA').length);
-
                 this._changeDetectorRef.markForCheck();
             },
             error: (error) => {
@@ -69,7 +65,9 @@ export class PriorityCardsComponent implements OnInit {
 
         this._getComplaints.getComplaintsByNeighborhood(this.selectedNeighborhood).subscribe({
             next: (data) => {
-                // this.complaints = data;
+                this.complaints = data?.complaintsByNeighborhood;
+
+                this._changeDetectorRef.markForCheck();
             },
             error: (error) => {
                 console.error(error);

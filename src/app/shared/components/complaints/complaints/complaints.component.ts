@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Complaint, ComplaintStatusType } from "@core/models";
+import { Complaint } from "@core/models";
 
 interface ComplaintStatus {
-    status: ComplaintStatusType;
+    status: string;
     backgroundColor: string;
     color: string;
 }
@@ -53,7 +53,7 @@ export class ComplaintsComponent implements OnInit {
         return `${day}/${month}/${year}`;
     }
 
-    getStatusStyle(status: ComplaintStatusType): { backgroundColor: string; color: string } {
+    getStatusStyle(status: string): { backgroundColor: string; color: string } {
         return this.complaintStatus.find(item => item.status === status)
             ?? { status, backgroundColor: 'transparent', color: 'inherit' };
     }

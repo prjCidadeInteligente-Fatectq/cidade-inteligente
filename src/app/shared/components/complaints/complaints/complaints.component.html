@@ -18,15 +18,18 @@
                     </div>
 
                     @if (isExpanded(complaint.id)) {
-                        <span class="complaint-description">Descrição: {{ complaint.description }}.</span>
+                        <span class="complaint-description">Descrição: {{ complaint.description ? complaint.description : 'não possui descrição cadastrada.'}}.</span>
                     }  
                 </div>
 
                 @if (isExpanded(complaint.id)) {
                     <div class="images">
-                        @for (imagePath of complaint.image_path; track imagePath) {
-                            <img [src]="imagePath">
+                        @if (complaint.image_path) {
+                            <img [src]="complaint.image_path">
+                        } @else {
+                            <span class="small">Não possui imagem cadastrada.</span>
                         }
+                        
                     </div>
                 }   
         

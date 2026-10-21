@@ -1,5 +1,4 @@
-import { ComplaintStatusType } from '../../../../core/models/complaint.model';
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ChangeDetectorRef, Component, EventEmitter, inject, Input, OnInit, Output } from "@angular/core";
 import { Complaint } from "@core/models";
 
 @Component({
@@ -38,13 +37,19 @@ import { Complaint } from "@core/models";
     </div>
     `
 })
-export class ComplaintsModalComponent {
+export class ComplaintsModalComponent implements OnInit{
+    private _changeDetectorRef = inject(ChangeDetectorRef);
+    
     @Input() neighborhoodName?: string = '';
     @Input() date?: Date | null = null;
     @Input() filteredComplaints?: Complaint[] = [];
     @Output() HideComplaints = new EventEmitter<string>();
 
     notConcludedComplaints?: Complaint[] = this.filteredComplaints?.filter(c => c.status === 'CONCLUÍDA');
+
+    ngOnInit(): void {
+      this._changeDetectorRef.markForCheck();
+    }
 
     HideModal() {
         this.HideComplaints.emit();

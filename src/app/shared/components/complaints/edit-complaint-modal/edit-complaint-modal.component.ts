@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from "@angular/core";
-import { Complaint, ComplaintStatusType, } from "@core/models";
+import { Complaint } from "@core/models";
 
 interface StatusOption {
-    status: ComplaintStatusType;
+    status: string;
     backgroundColor: string;
     color: string;
 }
@@ -57,13 +57,11 @@ export class EditComplaintModalComponent {
     form: Complaint = {
         id: '',
         problem: '',
-        status: 'PENDENTE',
+        status: '',
         street: '',
         neighborhood: '',
         register_date: '',
         description: '',
-        phone: '',
-        user_id: '',
     }
 
     get selectedStatus(): StatusOption {
@@ -78,7 +76,7 @@ export class EditComplaintModalComponent {
         this.isStatusOpen = !this.isStatusOpen;
     }
 
-    selectStatus(status: ComplaintStatusType) {
+    selectStatus(status: string) {
         this.form.status = status;
         this.isStatusOpen = false;
     }
